@@ -33,11 +33,6 @@ const Contact: React.FC = () => {
       label: 'X (Twitter)',
       value: 'write4dheeraj',
       link: 'https://x.com/write4dheeraj/'
-    },
-    {
-      label: 'Portfolio',
-      value: 'dheerajjha.vercel.app',
-      link: 'https://dheerajjha.vercel.app'
     }
   ];
 
