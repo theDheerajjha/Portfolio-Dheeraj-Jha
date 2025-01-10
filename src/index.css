@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-neutral-900 text-neutral-100 font-sans;
+  background-image: 
+    radial-gradient(circle at top right, rgba(0, 123, 255, 0.1), transparent 20%),
+    radial-gradient(circle at bottom left, rgba(255, 140, 26, 0.1), transparent 20%);
+  background-attachment: fixed;
+}
+
+/* Code-like Cursor Blink */
+@keyframes code-cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.code-cursor::after {
+  content: '|';
+  animation: code-cursor-blink 0.7s infinite;
+  @apply text-brand-300;
+}
+
+/* Tech-inspired Hover Effects */
+.tech-hover {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.tech-hover:hover {
+  @apply transform scale-105 shadow-lg;
+}
