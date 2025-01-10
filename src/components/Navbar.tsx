@@ -63,7 +63,7 @@ const Navbar: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             className="text-xl font-display font-bold text-transparent bg-clip-text bg-gradient-cosmic"
           >
-            {"<Dheeraj />"}
+            {"< Dheeraj />"}
           </motion.div>
 
           {/* Navigation Links */}
