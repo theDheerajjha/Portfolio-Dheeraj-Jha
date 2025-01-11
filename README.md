@@ -15,7 +15,7 @@ A professional portfolio website showcasing my work as a UI Engineer and Softwar
 3. Run `npm run dev` to start the development server
 
 ## Deployment
-Deployed on Vercel at: https://dheerajjha.vercel.app](https://dheeraj-kr.vercel.app
+Deployed on Vercel at: https://dheeraj-kr.vercel.app
 
 ## Contact
 - Email: write4dheeraj@gmail.com
