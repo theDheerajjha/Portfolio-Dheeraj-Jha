@@ -5,7 +5,7 @@ const Experience: React.FC = () => {
   const experiences = [
     {
       company: 'WebMD',
-      role: 'UI Engineer',
+      role: 'Software Engineer',
       duration: '06/2024 - Present',
       highlights: [
         'Implemented frontend features using ReactJS, JavaScript, and MaterialUI',
