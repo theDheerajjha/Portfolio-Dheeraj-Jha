@@ -39,7 +39,7 @@ const Header: React.FC = () => {
 
   const technologies = [
     'React', 'Vue', 'TypeScript', 
-    'NextJS', 'NodeJS', ''
+    'NextJS', 'NodeJS', 'Tailwind CSS',
   ];
 
   return (
