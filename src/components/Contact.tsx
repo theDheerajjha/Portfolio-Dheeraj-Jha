@@ -1,38 +1,49 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FaEnvelope, FaPhoneAlt, FaLocationArrow, FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
+import Flag from 'react-world-flags';
 
-const Contact: React.FC = () => {
+const Contact = () => {
   const contactDetails = [
     {
       label: 'Email',
       value: 'write4dheeraj@gmail.com',
-      link: 'mailto:write4dheeraj@gmail.com'
+      link: 'mailto:write4dheeraj@gmail.com',
+      icon: <FaEnvelope />
     },
     {
       label: 'Phone',
       value: '+91 8210107686',
       link: 'tel:+918210107686',
-      icon: '🇮🇳'
+      icon: <FaPhoneAlt />
     },
     {
       label: 'Location',
-      value: 'Mumbai, India',
-      icon: '🇮🇳'
+      value: (
+        <div className="flex items-center">
+          <span className="mr-2">Mumbai, India</span>
+          <Flag code="IN" className="w-5 h-5" />
+        </div>
+      ),
+      icon: <FaLocationArrow />
     },
     {
       label: 'LinkedIn',
       value: 'Dheeraj Jha',
-      link: 'https://linkedin.com/in/dheeraj-jha-65b2231b7'
+      link: 'https://linkedin.com/in/dheeraj-jha-65b2231b7',
+      icon: <FaLinkedin />
     },
     {
       label: 'GitHub',
       value: 'theDheerajjha',
-      link: 'https://github.com/theDheerajjha'
+      link: 'https://github.com/theDheerajjha',
+      icon: <FaGithub />
     },
     {
       label: 'X (Twitter)',
       value: 'write4dheeraj',
-      link: 'https://x.com/write4dheeraj/'
+      link: 'https://x.com/write4dheeraj/',
+      icon: <FaTwitter />
     }
   ];
 
@@ -63,7 +74,7 @@ const Contact: React.FC = () => {
                   {detail.label}
                 </span>
                 {detail.link ? (
-                  <a 
+                  <a  
                     href={detail.link}
                     target={detail.label !== 'Email' && detail.label !== 'Phone' ? '_blank' : undefined}
                     rel={detail.label !== 'Email' && detail.label !== 'Phone' ? 'noopener noreferrer' : undefined}
