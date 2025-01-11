@@ -25,7 +25,8 @@
       "json-schema",
       "prop-types",
       "semver"
-    ]
+    ],
+    "allowImportingTsExtensions": true  // Add this line
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
