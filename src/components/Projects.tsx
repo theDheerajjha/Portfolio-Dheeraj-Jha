@@ -14,6 +14,12 @@ const Projects: React.FC = () => {
       description: 'A dating app for dogs, helping pet owners find the perfect match for their pets.',
       technologies: ['HTML', 'CSS', 'JavaScript'],
       role: 'Built a responsive app with user-friendly UI and integrated pet matchmaking features.'
+    },
+    {
+      name: 'Workwise',
+      description: 'A platform to streamline employee experience, from recruitment to performance management.',
+      technologies: ['Vue.js', 'TypeScript', 'Tailwind CSS'],
+      role: 'Developed scalable features and integrated APIs for smoother user experience.'
     }
   ];
 
@@ -36,12 +42,7 @@ const Projects: React.FC = () => {
       technologies: ['React', 'GraphQL', 'Node.js'],
       role: 'Led the frontend team in building and optimizing key features for Medscape.'
     },
-    {
-      name: 'Workwise',
-      description: 'A platform to streamline employee experience, from recruitment to performance management.',
-      technologies: ['Vue.js', 'TypeScript', 'Tailwind CSS'],
-      role: 'Developed scalable features and integrated APIs for smoother user experience.'
-    }
+
   ];
 
   return (
