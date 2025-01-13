@@ -18,7 +18,7 @@ const Projects: React.FC = () => {
     {
       name: 'Workwise',
       description: 'A platform to streamline employee experience, from recruitment to performance management.',
-      technologies: ['Vue.js', 'TypeScript', 'Tailwind CSS'],
+      technologies: ['React.js', 'TypeScript', 'Tailwind CSS'],
       role: 'Developed scalable features and integrated APIs for smoother user experience.'
     }
   ];
