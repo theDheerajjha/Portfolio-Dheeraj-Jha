@@ -1,40 +1,40 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
 const Experience: React.FC = () => {
   const experiences = [
     {
-      company: 'WebMD',
-      role: 'Software Engineer',
-      duration: '06/2024 - Present',
+      company: "WebMD",
+      role: "Software Engineer",
+      duration: "06/2024 - Present",
       highlights: [
-        'Implemented frontend features using ReactJS, JavaScript, and MaterialUI',
-        'Integrated RESTful APIs and refined web tools for enhanced user experiences'
-      ]
+        "Implemented frontend features using ReactJS, JavaScript, and MaterialUI",
+        "Integrated RESTful APIs and refined web tools for enhanced user experiences",
+      ],
     },
     {
-      company: 'Cavista Technology',
-      role: 'Frontend Developer',
-      duration: '05/2022 - 06/2024',
+      company: "Cavista Technology",
+      role: "Frontend Developer",
+      duration: "05/2022 - 06/2024",
       highlights: [
-        'Developed web apps using ReactJS, Vue 3, and MaterialUI',
-        'Conducted code reviews and collaborated with backend developers'
-      ]
+        "Developed web apps using ReactJS, Vue 3, and MaterialUI",
+        "Conducted code reviews and collaborated with backend developers",
+      ],
     },
     {
-      company: 'Wolken Software',
-      role: 'Frontend Developer',
-      duration: '08/2021 - 05/2022',
+      company: "Wolken Software",
+      role: "Frontend Developer",
+      duration: "08/2021 - 05/2022",
       highlights: [
-        'Developed user-facing features with React and Redux',
-        'Supported existing integrations in an Agile environment'
-      ]
-    }
+        "Developed user-facing features with React and Redux",
+        "Supported existing integrations in an Agile environment",
+      ],
+    },
   ];
 
   return (
-    <section 
-      id="experience" 
+    <section
+      id="experience"
       className="relative py-16 bg-neutral-900 text-neutral-100 overflow-hidden"
     >
       <div className="container mx-auto px-4 relative z-10">
@@ -65,11 +65,9 @@ const Experience: React.FC = () => {
                     {exp.duration}
                   </span>
                 </div>
-                
-                <p className="text-neutral-300 mb-3">
-                  {exp.company}
-                </p>
-                
+
+                <p className="text-neutral-300 mb-3">{exp.company}</p>
+
                 <ul className="list-disc list-inside text-neutral-300 space-y-2">
                   {exp.highlights.map((highlight) => (
                     <li key={highlight} className="text-sm">

@@ -1,53 +1,60 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
 const Projects: React.FC = () => {
   const personalProjects = [
     {
-      name: 'MovieFlix',
-      description: 'A movie discovery platform for users to explore and rate movies.',
-      technologies: ['React', 'Node.js', 'Express.js', 'MongoDB'],
-      role: 'Designed and built the platform for searching, rating, and sharing movies.'
+      name: "MovieFlix",
+      description:
+        "A movie discovery platform for users to explore and rate movies.",
+      technologies: ["React", "Node.js", "Express.js", "MongoDB"],
+      role: "Designed and built the platform for searching, rating, and sharing movies.",
     },
     {
-      name: 'Tindog',
-      description: 'A dating app for dogs, helping pet owners find the perfect match for their pets.',
-      technologies: ['HTML', 'CSS', 'JavaScript'],
-      role: 'Built a responsive app with user-friendly UI and integrated pet matchmaking features.'
+      name: "Tindog",
+      description:
+        "A dating app for dogs, helping pet owners find the perfect match for their pets.",
+      technologies: ["HTML", "CSS", "JavaScript"],
+      role: "Built a responsive app with user-friendly UI and integrated pet matchmaking features.",
     },
     {
-      name: 'Workwise',
-      description: 'A platform to streamline employee experience, from recruitment to performance management.',
-      technologies: ['React.js', 'TypeScript', 'Tailwind CSS'],
-      role: 'Developed scalable features and integrated APIs for smoother user experience.'
-    }
+      name: "Workwise",
+      description:
+        "A platform to streamline employee experience, from recruitment to performance management.",
+      technologies: ["React.js", "TypeScript", "Tailwind CSS"],
+      role: "Developed scalable features and integrated APIs for smoother user experience.",
+    },
   ];
 
   const organizationalProjects = [
     {
-      name: 'Axxess Home Care',
-      description: 'Cloud-based software product for home care solutions used by over 1000 agencies in the United States.',
-      technologies: ['React.js', 'NextJS', 'Tailwind CSS', 'MaterialUI'],
-      role: 'Developed user-facing features and optimized web structures.'
+      name: "Axxess Home Care",
+      description:
+        "Cloud-based software product for home care solutions used by over 1000 agencies in the United States.",
+      technologies: ["React.js", "NextJS", "Tailwind CSS", "MaterialUI"],
+      role: "Developed user-facing features and optimized web structures.",
     },
     {
-      name: 'Wolken\'s Desk',
-      description: 'Enterprise service management platform.',
-      technologies: ['React', 'Redux', 'MaterialUI'],
-      role: 'Implemented frontend features and improved user experience.'
+      name: "Wolken's Desk",
+      description: "Enterprise service management platform.",
+      technologies: ["React", "Redux", "MaterialUI"],
+      role: "Implemented frontend features and improved user experience.",
     },
     {
-      name: 'Medscape',
-      description: 'A medical resource platform providing healthcare professionals with the latest medical news, drug information, and clinical guidelines.',
-      technologies: ['React', 'GraphQL', 'Node.js'],
-      role: 'Led the frontend team in building and optimizing key features for Medscape.'
+      name: "Medscape",
+      description:
+        "A medical resource platform providing healthcare professionals with the latest medical news, drug information, and clinical guidelines.",
+      technologies: ["React", "GraphQL", "Node.js"],
+      role: "Led the frontend team in building and optimizing key features for Medscape.",
     },
-
   ];
 
   return (
     <>
-      <section id="personal-projects" className="relative py-16 bg-gradient-to-r from-neutral-800 via-neutral-900 to-black text-neutral-100 overflow-hidden">
+      <section
+        id="personal-projects"
+        className="relative py-16 bg-gradient-to-r from-neutral-800 via-neutral-900 to-black text-neutral-100 overflow-hidden"
+      >
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -73,9 +80,7 @@ const Projects: React.FC = () => {
                     {project.name}
                   </h3>
 
-                  <p className="text-neutral-300 mb-4">
-                    {project.description}
-                  </p>
+                  <p className="text-neutral-300 mb-4">{project.description}</p>
 
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech) => (
@@ -98,7 +103,10 @@ const Projects: React.FC = () => {
         </div>
       </section>
 
-      <section id="organizational-projects" className="relative py-16 bg-gradient-to-r from-neutral-800 via-neutral-900 to-black text-neutral-100 overflow-hidden">
+      <section
+        id="organizational-projects"
+        className="relative py-16 bg-gradient-to-r from-neutral-800 via-neutral-900 to-black text-neutral-100 overflow-hidden"
+      >
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -124,9 +132,7 @@ const Projects: React.FC = () => {
                     {project.name}
                   </h3>
 
-                  <p className="text-neutral-300 mb-4">
-                    {project.description}
-                  </p>
+                  <p className="text-neutral-300 mb-4">{project.description}</p>
 
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech) => (

@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
-import Navbar from './Navbar';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import Navbar from "./Navbar";
 
 const Header: React.FC = () => {
-  const [displayText, setDisplayText] = useState('');
+  const [displayText, setDisplayText] = useState("");
   const introText = "Hi, I'm Dheeraj! 👋";
   const subtitleTexts = [
     "Crafting Digital Experiences 🚀",
     "Turning Code into Magic ✨",
-    "Web Wizard at Your Service 🧙‍♂️"
+    "Web Wizard at Your Service 🧙‍♂️",
   ];
   const [subtitleIndex, setSubtitleIndex] = useState(0);
 
   useEffect(() => {
-    let currentText = '';
+    let currentText = "";
     let index = 0;
 
     const typeWriter = setInterval(() => {
@@ -24,7 +24,7 @@ const Header: React.FC = () => {
         index++;
       } else {
         clearInterval(typeWriter);
-        
+
         // Cycle through subtitles
         const subtitleCycle = setInterval(() => {
           setSubtitleIndex((prev) => (prev + 1) % subtitleTexts.length);
@@ -38,22 +38,26 @@ const Header: React.FC = () => {
   }, []);
 
   const technologies = [
-    'React', 'Vue', 'TypeScript', 
-    'NextJS', 'NodeJS', 'Tailwind CSS',
+    "React",
+    "Vue",
+    "TypeScript",
+    "NextJS",
+    "NodeJS",
+    "Tailwind CSS",
   ];
 
   return (
-    <div 
-      id="home" 
+    <div
+      id="home"
       className="relative min-h-screen flex flex-col bg-neutral-900 overflow-hidden"
     >
       <Navbar />
-      
+
       {/* Background Geometric Shapes */}
       <div className="absolute top-0 right-0 w-72 h-72 bg-brand-400/10 rounded-full blur-3xl animate-spin-slow"></div>
       <div className="absolute bottom-0 left-0 w-56 h-56 bg-accent-400/10 rounded-full blur-3xl animate-float"></div>
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.3 }}
@@ -64,8 +68,8 @@ const Header: React.FC = () => {
             {displayText}
             <span className="animate-blink">|</span>
           </h1>
-          
-          <motion.p 
+
+          <motion.p
             key={subtitleIndex}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -74,10 +78,10 @@ const Header: React.FC = () => {
           >
             {subtitleTexts[subtitleIndex]}
           </motion.p>
-          
+
           <div className="flex flex-wrap justify-center gap-3 mt-6">
             {technologies.map((tech) => (
-              <motion.span 
+              <motion.span
                 key={tech}
                 whileHover={{ scale: 1.1 }}
                 className="px-4 py-2 bg-neutral-700 text-brand-300 rounded-full text-sm"
@@ -86,9 +90,9 @@ const Header: React.FC = () => {
               </motion.span>
             ))}
           </div>
-          
+
           <div className="flex justify-center space-x-4 mt-8">
-            <motion.a 
+            <motion.a
               href="#about"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -96,8 +100,8 @@ const Header: React.FC = () => {
             >
               Explore My Journey
             </motion.a>
-            
-            <motion.a 
+
+            <motion.a
               href="#contact"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -119,7 +123,7 @@ const Header: React.FC = () => {
             >
               <FaLinkedin className="w-6 h-6" />
             </motion.a>
-            
+
             <motion.a
               href="https://github.com/theDheerajjha"
               target="_blank"
@@ -130,7 +134,7 @@ const Header: React.FC = () => {
             >
               <FaGithub className="w-6 h-6" />
             </motion.a>
-            
+
             <motion.a
               href="mailto:write4dheeraj@gmail.com"
               target="_blank"
