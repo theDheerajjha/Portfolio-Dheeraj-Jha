@@ -18,7 +18,7 @@ const Projects: React.FC = () => {
       role: "Built a responsive app with user-friendly UI and integrated pet matchmaking features.",
     },
     {
-      name: "Workwise",
+      name: "Workwise-US",
       description:
         "A platform to streamline employee experience, from recruitment to performance management.",
       technologies: ["React.js", "TypeScript", "Tailwind CSS"],
