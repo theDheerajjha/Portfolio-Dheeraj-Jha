@@ -13,8 +13,8 @@ const Experience: React.FC = () => {
       ],
     },
     {
-      company: "Cavista Technology",
-      role: "Frontend Developer",
+      company: "Cavista Technology(Axxess)",
+      role: "Frontend Engineer",
       duration: "05/2022 - 06/2024",
       highlights: [
         "Developed web apps using ReactJS, Vue 3, and MaterialUI",
@@ -23,7 +23,7 @@ const Experience: React.FC = () => {
     },
     {
       company: "Wolken Software",
-      role: "Frontend Developer",
+      role: "Associate Software Developer",
       duration: "08/2021 - 05/2022",
       highlights: [
         "Developed user-facing features with React and Redux",

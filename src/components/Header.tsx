@@ -38,8 +38,8 @@ const Header: React.FC = () => {
   }, []);
 
   const technologies = [
-    "React",
-    "Vue",
+    "ReactJS",
+    "VueJS",
     "TypeScript",
     "NextJS",
     "NodeJS",
