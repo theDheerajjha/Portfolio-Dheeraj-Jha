@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import profilePic from "../assets/dk-dp-cas.jpg";
 import teaImage from "../assets/work.jpg"; // Replace with the actual tea image path
 
 const About: React.FC = () => {
+  const [imagesLoaded, setImagesLoaded] = useState({
+    profile: false,
+    tea: false
+  });
+
+  const handleImageLoad = (imageType: 'profile' | 'tea') => {
+    setImagesLoaded(prev => ({
+      ...prev,
+      [imageType]: true
+    }));
+  };
+
   return (
     <section
       id="about"
@@ -30,10 +42,13 @@ const About: React.FC = () => {
               className="w-32 h-32 rounded-full relative"
             >
               <div className="relative z-10 w-full h-full rounded-full overflow-hidden shadow-lg">
+                <div className={`absolute inset-0 bg-neutral-700 animate-pulse ${imagesLoaded.profile ? 'hidden' : 'block'}`} />
                 <img
                   src={profilePic}
                   alt="Dheeraj Jha"
-                  className="w-full h-full object-cover object-center bg-neutral-900 rounded-full opacity-70"
+                  loading="lazy"
+                  onLoad={() => handleImageLoad('profile')}
+                  className={`w-full h-full object-cover object-center bg-neutral-900 rounded-full opacity-70 transition-opacity duration-300 ${imagesLoaded.profile ? 'opacity-70' : 'opacity-0'}`}
                 />
               </div>
             </motion.div>
@@ -49,17 +64,17 @@ const About: React.FC = () => {
                 👨‍💻 Digital Craftsman 🛠️
               </h2>
               <p className="text-lg md:text-xl text-neutral-300 leading-relaxed mb-6">
-                Turning ideas into stunning web applications. Whether it’s
-                debugging tricky code or mentoring the next generation, I’m
+                Turning ideas into stunning web applications. Whether it's
+                debugging tricky code or mentoring the next generation, I'm
                 driven by innovation and collaboration. 🚀
               </p>
               <p className="text-neutral-300 mb-6">
-                As a Software Engineer at WebMD, I’ve had the opportunity to
+                As a Software Engineer at WebMD, I've had the opportunity to
                 work on impactful web solutions that reach millions. The journey
                 has been a constant evolution of learning, from my college days
                 building simple web apps to solving complex problems in
                 real-world applications. My passion lies in the intersection of
-                technology and user experience, and I’m always looking for ways
+                technology and user experience, and I'm always looking for ways
                 to improve and innovate in the digital space. 💻💡
               </p>
             </motion.div>
@@ -80,7 +95,7 @@ const About: React.FC = () => {
                 A steaming cup of tea has been my constant companion through
                 late-night coding marathons. From debugging tricky bugs to
                 building seamless applications, tea has provided that little
-                boost of inspiration and focus. It’s become a ritual — a moment
+                boost of inspiration and focus. It's become a ritual — a moment
                 of clarity that fuels my creative process. 🌱💡
               </p>
               <p className="text-neutral-300 leading-relaxed mt-4">
@@ -89,25 +104,28 @@ const About: React.FC = () => {
                 going through the grind of learning new languages and
                 technologies. Those were the days when I built my first React
                 app, and little did I know that it would spark a deep passion
-                for web development. Fast forward to today, I’m using
+                for web development. Fast forward to today, I'm using
                 technologies like TypeScript, Vue.js, and GraphQL to build
                 impactful applications that reach millions of users. 🚀
               </p>
               <p className="text-neutral-300 leading-relaxed mt-4">
-                Over the years, I’ve realized that every line of code tells a
+                Over the years, I've realized that every line of code tells a
                 story, every bug teaches a lesson, and every project is an
-                opportunity to innovate. And the best part? It’s just the
+                opportunity to innovate. And the best part? It's just the
                 beginning. 🌟
               </p>
             </div>
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="flex-shrink-0 overflow-hidden rounded-lg shadow-md w-full md:w-64 transition-transform mb-8 md:mb-0"
+              className="flex-shrink-0 overflow-hidden rounded-lg shadow-md w-full md:w-64 transition-transform mb-8 md:mb-0 relative"
             >
+              <div className={`absolute inset-0 bg-neutral-700 animate-pulse ${imagesLoaded.tea ? 'hidden' : 'block'}`} />
               <img
-                src={teaImage} // Replace with a relevant image
+                src={teaImage}
                 alt="Tea and Coding"
-                className="w-full h-full object-cover opacity-70"
+                loading="lazy"
+                onLoad={() => handleImageLoad('tea')}
+                className={`w-full h-full object-cover transition-opacity duration-300 ${imagesLoaded.tea ? 'opacity-70' : 'opacity-0'}`}
               />
             </motion.div>
           </motion.div>
