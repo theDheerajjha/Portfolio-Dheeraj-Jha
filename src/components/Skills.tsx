@@ -31,7 +31,7 @@ const Skills: React.FC = () => {
 
   const additionalSkills = [
     "TypeScript",
-    "State Management",
+    "NextJS",
     "GraphQL",
     "REST APIs",
     "Responsive Design",
