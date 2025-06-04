@@ -1,0 +1,136 @@
+// Brand Colors
+$brand-colors: (
+  'primary': #3b82f6,    // Blue
+  'secondary': #8b5cf6,  // Purple
+  'accent': #ec4899,     // Pink
+  'success': #10b981,    // Green
+  'warning': #f59e0b,    // Amber
+  'error': #ef4444      // Red
+);
+
+// Neutral Colors
+$neutral-colors: (
+  '50': #f8fafc,    // Lightest
+  '100': #f1f5f9,
+  '200': #e2e8f0,
+  '300': #cbd5e1,
+  '400': #94a3b8,
+  '500': #64748b,
+  '600': #475569,
+  '700': #334155,
+  '800': #1e293b,
+  '900': #0f172a     // Darkest
+);
+
+// Font Families
+$font-families: (
+  'sans': ('Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif),
+  'mono': ('JetBrains Mono', 'Fira Code', 'Courier New', monospace)
+);
+
+// Font Sizes
+$font-sizes: (
+  'xs': 0.75rem,    // 12px
+  'sm': 0.875rem,   // 14px
+  'base': 1rem,     // 16px
+  'lg': 1.125rem,   // 18px
+  'xl': 1.25rem,    // 20px
+  '2xl': 1.5rem,    // 24px
+  '3xl': 1.875rem,  // 30px
+  '4xl': 2.25rem,   // 36px
+  '5xl': 3rem       // 48px
+);
+
+// Spacing
+$spacing: (
+  '0': 0,
+  '1': 0.25rem,     // 4px
+  '2': 0.5rem,      // 8px
+  '3': 0.75rem,     // 12px
+  '4': 1rem,        // 16px
+  '5': 1.25rem,     // 20px
+  '6': 1.5rem,      // 24px
+  '8': 2rem,        // 32px
+  '10': 2.5rem,     // 40px
+  '12': 3rem,       // 48px
+  '16': 4rem,       // 64px
+  '20': 5rem,       // 80px
+  '24': 6rem        // 96px
+);
+
+// Border Radius
+$border-radius: (
+  'none': 0,
+  'sm': 0.125rem,   // 2px
+  'base': 0.25rem,  // 4px
+  'md': 0.375rem,   // 6px
+  'lg': 0.5rem,     // 8px
+  'xl': 0.75rem,    // 12px
+  '2xl': 1rem,      // 16px
+  '3xl': 1.5rem,    // 24px
+  'full': 9999px
+);
+
+// Breakpoints
+$breakpoints: (
+  'sm': 640px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px,
+  '2xl': 1536px
+);
+
+// Transition Durations
+$transition-durations: (
+  'fast': 150ms,
+  'normal': 300ms,
+  'slow': 500ms
+);
+
+// Transition Timings
+$transition-timings: (
+  'linear': linear,
+  'ease': ease,
+  'ease-in': ease-in,
+  'ease-out': ease-out,
+  'ease-in-out': ease-in-out
+);
+
+// Theme Colors
+$theme-colors: (
+  'light': (
+    'bg-primary': map-get($neutral-colors, '100'),
+    'bg-secondary': map-get($neutral-colors, '50'),
+    'bg-tertiary': map-get($neutral-colors, '200'),
+    'text-primary': map-get($neutral-colors, '800'),
+    'text-secondary': map-get($neutral-colors, '600'),
+    'text-tertiary': map-get($neutral-colors, '500'),
+    'border': map-get($neutral-colors, '200'),
+    'border-hover': map-get($neutral-colors, '300'),
+    'shadow': rgba(0, 0, 0, 0.1),
+    'overlay': rgba(255, 255, 255, 0.8)
+  ),
+  'dark': (
+    'bg-primary': map-get($neutral-colors, '900'),
+    'bg-secondary': map-get($neutral-colors, '800'),
+    'bg-tertiary': map-get($neutral-colors, '700'),
+    'text-primary': map-get($neutral-colors, '50'),
+    'text-secondary': map-get($neutral-colors, '300'),
+    'text-tertiary': map-get($neutral-colors, '400'),
+    'border': map-get($neutral-colors, '700'),
+    'border-hover': map-get($neutral-colors, '600'),
+    'shadow': rgba(0, 0, 0, 0.3),
+    'overlay': rgba(0, 0, 0, 0.8)
+  )
+);
+
+// Z-index
+$z-index: (
+  '0': 0,
+  '10': 10,
+  '20': 20,
+  '30': 30,
+  '40': 40,
+  '50': 50,
+  'auto': auto
+); 

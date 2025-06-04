@@ -1,0 +1,222 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.about {
+  position: relative;
+  padding: map-get($spacing, '16') 0;
+  @include theme-background(map-get($neutral-colors, '50'), map-get($neutral-colors, '900'));
+  @include theme-text(map-get($neutral-colors, '900'), map-get($neutral-colors, '50'));
+  overflow: hidden;
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 18rem;
+    height: 18rem;
+    background-color: rgba(map-get($brand-colors, 'primary'), 0.1);
+    border-radius: 9999px;
+    filter: blur(64px);
+    animation: spin 20s linear infinite;
+
+    &--secondary {
+      top: auto;
+      left: auto;
+      bottom: 0;
+      right: 0;
+      width: 14rem;
+      height: 14rem;
+      background-color: rgba(map-get($brand-colors, 'accent'), 0.1);
+      animation: float 6s ease-in-out infinite;
+    }
+  }
+
+  &__container {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 0 map-get($spacing, '4');
+    position: relative;
+    z-index: 10;
+  }
+
+  &__profile {
+    @include flex(column, center, center);
+    gap: map-get($spacing, '8');
+    margin-bottom: map-get($spacing, '12');
+  }
+
+  &__image-container {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 9999px;
+    position: relative;
+  }
+
+  &__image-wrapper {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    border-radius: 9999px;
+    overflow: hidden;
+    @include theme-shadow(map-get($neutral-colors, '200'), map-get($neutral-colors, '900'));
+  }
+
+  &__image-placeholder {
+    position: absolute;
+    inset: 0;
+    @include theme-background-secondary(map-get($neutral-colors, '100'), map-get($neutral-colors, '800'));
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    @include theme-background-tertiary(map-get($neutral-colors, '200'), map-get($neutral-colors, '700'));
+    border-radius: 9999px;
+    opacity: 0.7;
+    @include transition(opacity);
+  }
+
+  &__content {
+    text-align: center;
+  }
+
+  &__title {
+    @include font-size('3xl');
+    font-weight: 700;
+    margin-bottom: map-get($spacing, '6');
+    background: linear-gradient(135deg, map-get($brand-colors, 'primary'), map-get($brand-colors, 'secondary'));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    @include respond-to('md') {
+      @include font-size('4xl');
+    }
+  }
+
+  &__text {
+    @include font-size('lg');
+    @include theme-text-secondary(map-get($neutral-colors, '700'), map-get($neutral-colors, '300'));
+    line-height: 1.75;
+    margin-bottom: map-get($spacing, '6');
+
+    @include respond-to('md') {
+      @include font-size('xl');
+    }
+  }
+
+  &__tea-section {
+    @include theme-background-secondary(map-get($neutral-colors, '100'), map-get($neutral-colors, '800'));
+    border-radius: map-get($border-radius, 'lg');
+    padding: map-get($spacing, '8');
+    @include theme-shadow(map-get($neutral-colors, '200'), map-get($neutral-colors, '900'));
+    margin-bottom: map-get($spacing, '12');
+    @include flex(column, flex-start, center);
+    gap: map-get($spacing, '8');
+    @include transition(transform, box-shadow);
+
+    &:hover {
+      @include theme-shadow(map-get($neutral-colors, '300'), map-get($neutral-colors, '800'));
+      transform: scale(1.02);
+    }
+
+    @include respond-to('md') {
+      @include flex(row, space-between, center);
+    }
+  }
+
+  &__tea-content {
+    flex: 1;
+  }
+
+  &__tea-title {
+    @include font-size('2xl');
+    font-weight: 600;
+    margin-bottom: map-get($spacing, '4');
+    color: var(--color-brand-primary);
+    @include flex(row, flex-start, center);
+  }
+
+  &__tea-text {
+    @include theme-text-secondary(map-get($neutral-colors, '700'), map-get($neutral-colors, '300'));
+    line-height: 1.75;
+
+    & + & {
+      margin-top: map-get($spacing, '4');
+    }
+  }
+
+  &__tea-image-container {
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: map-get($border-radius, 'lg');
+    @include theme-shadow(map-get($neutral-colors, '200'), map-get($neutral-colors, '900'));
+    width: 100%;
+    margin-bottom: map-get($spacing, '8');
+    @include transition(transform);
+
+    @include respond-to('md') {
+      width: 16rem;
+      margin-bottom: 0;
+    }
+  }
+
+  &__tea-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+    @include transition(opacity);
+  }
+
+  &__fun-section {
+    text-align: center;
+  }
+
+  &__fun-title {
+    @include font-size('2xl');
+    font-weight: 600;
+    color: var(--color-brand-accent);
+    @include flex(row, center, center);
+  }
+
+  &__fun-text {
+    @include theme-text-secondary(map-get($neutral-colors, '700'), map-get($neutral-colors, '300'));
+    margin-top: map-get($spacing, '4');
+    @include font-size('lg');
+
+    & + & {
+      margin-top: map-get($spacing, '4');
+    }
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+} 

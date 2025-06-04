@@ -1,0 +1,89 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.projects {
+  &__section {
+    position: relative;
+    padding: map-get($spacing, '16') 0;
+    @include theme-background(map-get($neutral-colors, '50'), map-get($neutral-colors, '900'));
+    @include theme-text(map-get($neutral-colors, '900'), map-get($neutral-colors, '50'));
+    overflow: hidden;
+  }
+
+  &__container {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 0 map-get($spacing, '4');
+    position: relative;
+    z-index: 10;
+  }
+
+  &__title {
+    @include font-size('3xl');
+    font-weight: 800;
+    margin-bottom: map-get($spacing, '10');
+    text-align: center;
+    background: linear-gradient(135deg, var(--color-brand-primary), var(--color-brand-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    @include respond-to('md') {
+      @include font-size('4xl');
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: map-get($spacing, '6');
+
+    @include respond-to('md') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__card {
+    @include theme-background-secondary(map-get($neutral-colors, '100'), map-get($neutral-colors, '800'));
+    padding: map-get($spacing, '6');
+    border-radius: map-get($border-radius, 'lg');
+    @include theme-shadow(map-get($neutral-colors, '200'), map-get($neutral-colors, '900'));
+    @include transition(transform, box-shadow);
+
+    &:hover {
+      transform: translateY(-4px);
+      @include theme-shadow(map-get($neutral-colors, '300'), map-get($neutral-colors, '800'));
+    }
+  }
+
+  &__card-title {
+    @include font-size('2xl');
+    font-weight: 600;
+    margin-bottom: map-get($spacing, '3');
+    color: var(--color-brand-primary);
+  }
+
+  &__card-description {
+    @include theme-text-secondary(map-get($neutral-colors, '700'), map-get($neutral-colors, '300'));
+    margin-bottom: map-get($spacing, '4');
+  }
+
+  &__tech-list {
+    @include flex(row, flex-start, center);
+    flex-wrap: wrap;
+    gap: map-get($spacing, '2');
+    margin-bottom: map-get($spacing, '4');
+  }
+
+  &__tech-item {
+    padding: map-get($spacing, '1') map-get($spacing, '2');
+    @include theme-background-tertiary(map-get($neutral-colors, '200'), map-get($neutral-colors, '700'));
+    color: var(--color-brand-primary);
+    border-radius: map-get($border-radius, 'full');
+    @include font-size('xs');
+  }
+
+  &__card-role {
+    @include theme-text-secondary(map-get($neutral-colors, '700'), map-get($neutral-colors, '300'));
+    @include font-size('sm');
+    font-style: italic;
+  }
+} 

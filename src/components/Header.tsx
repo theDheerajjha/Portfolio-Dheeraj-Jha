@@ -47,24 +47,21 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <div
-      id="home"
-      className="relative min-h-screen flex flex-col bg-neutral-900 overflow-hidden"
-    >
+    <div id="home" className="header">
       <Navbar />
 
       {/* Background Geometric Shapes */}
-      <div className="absolute top-0 right-0 w-72 h-72 bg-brand-400/10 rounded-full blur-3xl animate-spin-slow"></div>
-      <div className="absolute bottom-0 left-0 w-56 h-56 bg-accent-400/10 rounded-full blur-3xl animate-float"></div>
+      <div className="header__background"></div>
+      <div className="header__background header__background--secondary"></div>
 
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.3 }}
-        className="container mx-auto px-4 flex-grow flex items-center justify-center text-center relative z-10"
+        className="header__content"
       >
-        <div className="space-y-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-cosmic">
+        <div>
+          <h1 className="header__title">
             {displayText}
             <span className="animate-blink">|</span>
           </h1>
@@ -74,29 +71,29 @@ const Header: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-xl md:text-2xl text-neutral-300 max-w-2xl mx-auto"
+            className="header__subtitle"
           >
             {subtitleTexts[subtitleIndex]}
           </motion.p>
 
-          <div className="flex flex-wrap justify-center gap-3 mt-6">
+          <div className="header__tech-stack">
             {technologies.map((tech) => (
               <motion.span
                 key={tech}
                 whileHover={{ scale: 1.1 }}
-                className="px-4 py-2 bg-neutral-700 text-brand-300 rounded-full text-sm"
+                className="header__tech-item"
               >
                 {tech}
               </motion.span>
             ))}
           </div>
 
-          <div className="flex justify-center space-x-4 mt-8">
+          <div className="header__cta">
             <motion.a
               href="#about"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="px-6 py-3 bg-brand-300 text-white rounded-lg hover:bg-brand-400 transition duration-300 shadow-cosmic"
+              className="header__button header__button--primary"
             >
               Explore My Journey
             </motion.a>
@@ -105,21 +102,21 @@ const Header: React.FC = () => {
               href="#contact"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="px-6 py-3 border-2 border-neutral-300 text-neutral-300 rounded-lg hover:bg-neutral-700 transition duration-300"
+              className="header__button header__button--secondary"
             >
               Contact Me
             </motion.a>
           </div>
 
           {/* Social Links */}
-          <div className="flex justify-center space-x-4 mt-6">
+          <div className="header__social">
             <motion.a
               href="https://linkedin.com/in/dheeraj-jha-65b2231b7"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
-              className="text-neutral-300 hover:text-brand-300 transition duration-300"
+              className="header__social-link"
             >
               <FaLinkedin className="w-6 h-6" />
             </motion.a>
@@ -130,7 +127,7 @@ const Header: React.FC = () => {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
-              className="text-neutral-300 hover:text-brand-300 transition duration-300"
+              className="header__social-link"
             >
               <FaGithub className="w-6 h-6" />
             </motion.a>
@@ -141,7 +138,7 @@ const Header: React.FC = () => {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
-              className="text-neutral-300 hover:text-brand-300 transition duration-300"
+              className="header__social-link"
             >
               <FaEnvelope className="w-6 h-6" />
             </motion.a>

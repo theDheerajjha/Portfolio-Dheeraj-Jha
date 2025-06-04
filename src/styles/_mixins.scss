@@ -1,0 +1,181 @@
+@use 'variables' as *;
+
+// Theme Mixins
+@mixin theme-background($light, $dark) {
+  background-color: var(--bg-primary);
+}
+
+@mixin theme-background-secondary($light, $dark) {
+  background-color: var(--bg-secondary);
+}
+
+@mixin theme-background-tertiary($light, $dark) {
+  background-color: var(--bg-tertiary);
+}
+
+@mixin theme-text($light, $dark) {
+  color: var(--text-primary);
+}
+
+@mixin theme-text-secondary($light, $dark) {
+  color: var(--text-secondary);
+}
+
+@mixin theme-text-tertiary($light, $dark) {
+  color: var(--text-tertiary);
+}
+
+@mixin theme-border($light, $dark) {
+  border-color: var(--border);
+}
+
+@mixin theme-border-hover($light, $dark) {
+  border-color: var(--border-hover);
+}
+
+@mixin theme-shadow($light, $dark) {
+  box-shadow: 0 4px 6px var(--shadow);
+}
+
+@mixin theme-overlay($light, $dark) {
+  background-color: var(--overlay);
+}
+
+// Responsive Mixins
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint: #{$breakpoint}";
+  }
+}
+
+// Typography Mixins
+@mixin font-family($family) {
+  font-family: map-get($font-families, $family);
+}
+
+@mixin font-size($size) {
+  font-size: map-get($font-sizes, $size);
+}
+
+// Layout Mixins
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $wrap: nowrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+@mixin grid($columns: 1, $gap: 0) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+// Transition Mixins
+@mixin transition($properties...) {
+  $transitions: ();
+  @each $property in $properties {
+    $transitions: append($transitions, $property 300ms map-get($transition-timings, 'ease-out'), comma);
+  }
+  transition: $transitions;
+}
+
+// Button Mixins
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: map-get($spacing, '3') map-get($spacing, '6');
+  border-radius: map-get($border-radius, 'lg');
+  font-weight: 500;
+  @include transition(background-color, transform, box-shadow);
+}
+
+@mixin button-primary {
+  @include button-base;
+  background-color: var(--color-brand-primary);
+  color: white;
+
+  &:hover {
+    background-color: darken(map-get($brand-colors, 'primary'), 10%);
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background-color: transparent;
+  border: 2px solid var(--border);
+  color: var(--text-primary);
+
+  &:hover {
+    background-color: var(--bg-secondary);
+  }
+}
+
+// Card Mixins
+@mixin card-base {
+  background-color: var(--bg-secondary);
+  border-radius: map-get($border-radius, 'lg');
+  padding: map-get($spacing, '6');
+  @include theme-shadow(map-get($neutral-colors, '200'), map-get($neutral-colors, '900'));
+}
+
+@mixin card-hover {
+  @include transition(transform, box-shadow);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px var(--shadow);
+  }
+}
+
+// Spacing Mixins
+@mixin spacing($property, $size) {
+  @if map-has-key($spacing, $size) {
+    #{$property}: map-get($spacing, $size);
+  } @else {
+    @warn "Invalid spacing size: #{$size}.";
+  }
+}
+
+// Card Mixins
+@mixin card($padding: map-get($spacing, '4')) {
+  padding: $padding;
+  border-radius: map-get($border-radius, 'lg');
+  @include theme-background(map-get($neutral-colors, '50'), map-get($neutral-colors, '800'));
+  @include theme-text(map-get($neutral-colors, '900'), map-get($neutral-colors, '100'));
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+// Button Mixins
+@mixin button($variant: 'primary') {
+  padding: map-get($spacing, '2') map-get($spacing, '4');
+  border-radius: map-get($border-radius, 'md');
+  @include font-size('sm');
+  @include font-family('sans');
+  font-weight: 600;
+  @include transition(background-color, color, transform);
+  
+  @if $variant == 'primary' {
+    @include theme-background(map-get($brand-colors, 'primary'), map-get($brand-colors, 'primary'));
+    color: white;
+    &:hover {
+      background-color: darken(map-get($brand-colors, 'primary'), 10%);
+    }
+  } @else if $variant == 'secondary' {
+    @include theme-background(map-get($brand-colors, 'secondary'), map-get($brand-colors, 'secondary'));
+    color: white;
+    &:hover {
+      background-color: darken(map-get($brand-colors, 'secondary'), 10%);
+    }
+  }
+  
+  &:active {
+    transform: scale(0.98);
+  }
+} 
