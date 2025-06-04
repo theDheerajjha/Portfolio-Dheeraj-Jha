@@ -1,0 +1,171 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Import component styles
+@use 'components/navbar';
+@use 'components/header';
+@use 'components/about';
+@use 'components/skills';
+@use 'components/experience';
+@use 'components/projects';
+@use 'components/contact';
+
+// Base theme styles
+:root {
+  // Brand Colors
+  @each $name, $color in $brand-colors {
+    --color-brand-#{$name}: #{$color};
+  }
+
+  // Neutral Colors
+  @each $name, $color in $neutral-colors {
+    --color-neutral-#{$name}: #{$color};
+  }
+
+  // Theme Colors
+  @each $name, $color in map-get($theme-colors, 'light') {
+    --color-#{$name}: #{$color};
+  }
+
+  // Font Families
+  @each $name, $font in $font-families {
+    --font-#{$name}: #{$font};
+  }
+
+  // Font Sizes
+  @each $name, $size in $font-sizes {
+    --font-size-#{$name}: #{$size};
+  }
+
+  // Spacing
+  @each $name, $space in $spacing {
+    --spacing-#{$name}: #{$space};
+  }
+
+  // Border Radius
+  @each $name, $radius in $border-radius {
+    --radius-#{$name}: #{$radius};
+  }
+
+  // Transitions
+  @each $name, $duration in $transition-durations {
+    --transition-#{$name}: #{$duration};
+  }
+
+  @each $name, $timing in $transition-timings {
+    --transition-timing-#{$name}: #{$timing};
+  }
+
+  // Z-index
+  @each $name, $z in $z-index {
+    --z-#{$name}: #{$z};
+  }
+}
+
+// Dark theme
+[data-theme='dark'] {
+  @each $name, $color in map-get($theme-colors, 'dark') {
+    --color-#{$name}: #{$color};
+  }
+}
+
+// Theme classes
+.theme-light {
+  --bg-primary: #{map-get($theme-colors, 'light', 'bg-primary')};
+  --bg-secondary: #{map-get($theme-colors, 'light', 'bg-secondary')};
+  --bg-tertiary: #{map-get($theme-colors, 'light', 'bg-tertiary')};
+  --text-primary: #{map-get($theme-colors, 'light', 'text-primary')};
+  --text-secondary: #{map-get($theme-colors, 'light', 'text-secondary')};
+  --text-tertiary: #{map-get($theme-colors, 'light', 'text-tertiary')};
+  --border: #{map-get($theme-colors, 'light', 'border')};
+  --border-hover: #{map-get($theme-colors, 'light', 'border-hover')};
+  --shadow: #{map-get($theme-colors, 'light', 'shadow')};
+  --overlay: #{map-get($theme-colors, 'light', 'overlay')};
+}
+
+.theme-dark {
+  --bg-primary: #{map-get($theme-colors, 'dark', 'bg-primary')};
+  --bg-secondary: #{map-get($theme-colors, 'dark', 'bg-secondary')};
+  --bg-tertiary: #{map-get($theme-colors, 'dark', 'bg-tertiary')};
+  --text-primary: #{map-get($theme-colors, 'dark', 'text-primary')};
+  --text-secondary: #{map-get($theme-colors, 'dark', 'text-secondary')};
+  --text-tertiary: #{map-get($theme-colors, 'dark', 'text-tertiary')};
+  --border: #{map-get($theme-colors, 'dark', 'border')};
+  --border-hover: #{map-get($theme-colors, 'dark', 'border-hover')};
+  --shadow: #{map-get($theme-colors, 'dark', 'shadow')};
+  --overlay: #{map-get($theme-colors, 'dark', 'overlay')};
+}
+
+// Global styles
+body {
+  @include theme-background(map-get($neutral-colors, '50'), map-get($neutral-colors, '900'));
+  @include theme-text(map-get($neutral-colors, '900'), map-get($neutral-colors, '50'));
+  @include font-family('sans');
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  @include font-family('heading');
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: map-get($spacing, '4');
+}
+
+h1 { @include font-size('4xl'); }
+h2 { @include font-size('3xl'); }
+h3 { @include font-size('2xl'); }
+h4 { @include font-size('xl'); }
+h5 { @include font-size('lg'); }
+h6 { @include font-size('base'); }
+
+// Links
+a {
+  color: var(--color-brand-primary);
+  text-decoration: none;
+  @include transition(color);
+
+  &:hover {
+    color: darken(map-get($brand-colors, 'primary'), 10%);
+  }
+}
+
+// Buttons
+.btn {
+  @include button;
+}
+
+.btn-secondary {
+  @include button('secondary');
+}
+
+// Cards
+.card {
+  @include card;
+}
+
+// Grid system
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 map-get($spacing, '4');
+}
+
+// Responsive utilities
+@each $breakpoint, $value in $breakpoints {
+  .hide-#{$breakpoint} {
+    @include respond-to($breakpoint) {
+      display: none;
+    }
+  }
+
+  .show-#{$breakpoint} {
+    display: none;
+    @include respond-to($breakpoint) {
+      display: block;
+    }
+  }
+} 

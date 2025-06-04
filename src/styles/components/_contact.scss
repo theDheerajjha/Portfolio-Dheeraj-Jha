@@ -1,0 +1,86 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.contact {
+  position: relative;
+  padding: map-get($spacing, '16') 0;
+  @include theme-background(map-get($neutral-colors, '50'), map-get($neutral-colors, '900'));
+  @include theme-text(map-get($neutral-colors, '900'), map-get($neutral-colors, '50'));
+  overflow: hidden;
+
+  &__container {
+    max-width: 28rem;
+    margin: 0 auto;
+    padding: 0 map-get($spacing, '4');
+    position: relative;
+    z-index: 10;
+  }
+
+  &__title {
+    @include font-size('3xl');
+    font-weight: 700;
+    margin-bottom: map-get($spacing, '10');
+    text-align: center;
+    background: linear-gradient(135deg, var(--color-brand-primary), var(--color-brand-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    @include respond-to('md') {
+      @include font-size('4xl');
+    }
+  }
+
+  &__card {
+    @include theme-background-secondary(map-get($neutral-colors, '100'), map-get($neutral-colors, '800'));
+    padding: map-get($spacing, '8');
+    border-radius: map-get($border-radius, 'lg');
+    @include theme-shadow(map-get($neutral-colors, '200'), map-get($neutral-colors, '900'));
+  }
+
+  &__detail {
+    @include flex(row, space-between, center);
+    margin-bottom: map-get($spacing, '4');
+    padding-bottom: map-get($spacing, '4');
+    border-bottom: 1px solid var(--border);
+
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+
+  &__label {
+    @include theme-text-secondary(map-get($neutral-colors, '700'), map-get($neutral-colors, '300'));
+    @include flex(row, flex-start, center);
+  }
+
+  &__icon {
+    margin-right: map-get($spacing, '2');
+    @include font-size('xl');
+  }
+
+  &__value {
+    @include theme-text(map-get($neutral-colors, '900'), map-get($neutral-colors, '50'));
+  }
+
+  &__link {
+    color: var(--color-brand-primary);
+    @include transition(color);
+    @include flex(row, flex-start, center);
+
+    &:hover {
+      color: lighten(map-get($brand-colors, 'primary'), 10%);
+    }
+  }
+
+  &__location {
+    @include flex(row, flex-start, center);
+  }
+
+  &__flag {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-left: map-get($spacing, '2');
+  }
+} 

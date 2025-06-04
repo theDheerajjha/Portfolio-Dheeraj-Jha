@@ -1,0 +1,128 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.skills {
+  position: relative;
+  padding: map-get($spacing, '16') 0;
+  @include theme-background(map-get($neutral-colors, '50'), map-get($neutral-colors, '900'));
+  @include theme-text(map-get($neutral-colors, '900'), map-get($neutral-colors, '50'));
+  overflow: hidden;
+
+  &__container {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 0 map-get($spacing, '4');
+    position: relative;
+    z-index: 10;
+  }
+
+  &__title {
+    @include font-size('3xl');
+    font-weight: 700;
+    margin-bottom: map-get($spacing, '10');
+    text-align: center;
+    background: linear-gradient(135deg, var(--color-brand-primary), var(--color-brand-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    @include respond-to('md') {
+      @include font-size('4xl');
+    }
+  }
+
+  &__framework-grid {
+    display: grid;
+    gap: map-get($spacing, '6');
+    margin-bottom: map-get($spacing, '12');
+
+    @include respond-to('md') {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__framework-card {
+    padding: map-get($spacing, '6');
+    border-radius: map-get($border-radius, 'lg');
+    @include theme-background-secondary(map-get($neutral-colors, '100'), map-get($neutral-colors, '800'));
+    @include theme-shadow(map-get($neutral-colors, '200'), map-get($neutral-colors, '900'));
+    @include transition(transform);
+
+    &--react {
+      color: var(--color-brand-primary);
+      background-color: rgba(map-get($brand-colors, 'primary'), 0.1);
+    }
+
+    &--vue {
+      color: var(--color-brand-success);
+      background-color: rgba(map-get($brand-colors, 'success'), 0.1);
+    }
+
+    &--angular {
+      color: var(--color-brand-error);
+      background-color: rgba(map-get($brand-colors, 'error'), 0.1);
+    }
+
+    &:hover {
+      transform: translateY(-4px);
+      @include theme-shadow(map-get($neutral-colors, '300'), map-get($neutral-colors, '800'));
+    }
+  }
+
+  &__framework-header {
+    @include flex(row, flex-start, center);
+    margin-bottom: map-get($spacing, '4');
+  }
+
+  &__framework-icon {
+    @include font-size('4xl');
+    margin-right: map-get($spacing, '4');
+  }
+
+  &__framework-info {
+    h3 {
+      @include font-size('xl');
+      font-weight: 600;
+      @include theme-text(map-get($neutral-colors, '900'), map-get($neutral-colors, '50'));
+    }
+
+    p {
+      @include font-size('sm');
+      @include theme-text-secondary(map-get($neutral-colors, '700'), map-get($neutral-colors, '300'));
+    }
+  }
+
+  &__framework-description {
+    @include font-size('sm');
+    @include theme-text-secondary(map-get($neutral-colors, '700'), map-get($neutral-colors, '300'));
+  }
+
+  &__additional {
+    text-align: center;
+  }
+
+  &__additional-title {
+    @include font-size('2xl');
+    font-weight: 600;
+    margin-bottom: map-get($spacing, '6');
+    color: var(--color-brand-primary);
+  }
+
+  &__additional-list {
+    @include flex(row, center, center);
+    flex-wrap: wrap;
+    gap: map-get($spacing, '3');
+  }
+
+  &__additional-item {
+    padding: map-get($spacing, '2') map-get($spacing, '4');
+    @include theme-background-secondary(map-get($neutral-colors, '100'), map-get($neutral-colors, '800'));
+    color: var(--color-brand-primary);
+    border-radius: map-get($border-radius, 'full');
+    @include font-size('sm');
+    @include transition(transform);
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+} 

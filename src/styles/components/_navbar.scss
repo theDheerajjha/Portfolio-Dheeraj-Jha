@@ -1,0 +1,136 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: map-get($z-index, '50');
+  @include transition(background-color, box-shadow);
+
+  &--scrolled {
+    background-color: rgba(var(--bg-primary), 0.9);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  &__container {
+    @include flex(row, space-between, center);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: map-get($spacing, '3') map-get($spacing, '4');
+  }
+
+  &__logo {
+    @include font-family('display');
+    font-size: map-get($font-sizes, 'xl');
+    font-weight: 700;
+    background: linear-gradient(135deg, map-get($brand-colors, 'primary'), map-get($brand-colors, 'secondary'));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &__links {
+    @include flex(row, flex-end, center);
+    gap: map-get($spacing, '4');
+    display: none;
+
+    @include respond-to('md') {
+      display: flex;
+    }
+  }
+
+  &__link {
+    position: relative;
+    @include font-size('sm');
+    @include theme-text(map-get($neutral-colors, '700'), map-get($neutral-colors, '300'));
+    @include transition(color);
+
+    &:hover {
+      color: map-get($brand-colors, 'primary');
+    }
+
+    &--active {
+      color: map-get($brand-colors, 'primary');
+    }
+
+    &-underline {
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: map-get($brand-colors, 'primary');
+      @include transition(width);
+
+      .navbar__link:hover &,
+      .navbar__link--active & {
+        width: 100%;
+      }
+    }
+  }
+
+  &__theme-toggle {
+    @include flex(row, center, center);
+    padding: map-get($spacing, '2');
+    border-radius: map-get($border-radius, 'full');
+    @include theme-background(map-get($neutral-colors, '200'), map-get($neutral-colors, '700'));
+    @include theme-text(map-get($neutral-colors, '700'), map-get($neutral-colors, '200'));
+    @include transition(background-color, color, transform);
+
+    &:hover {
+      @include theme-background(map-get($neutral-colors, '300'), map-get($neutral-colors, '600'));
+    }
+  }
+
+  &__mobile {
+    @include flex(row, flex-end, center);
+    gap: map-get($spacing, '4');
+
+    @include respond-to('md') {
+      display: none;
+    }
+  }
+
+  &__mobile-toggle {
+    @include theme-text(map-get($neutral-colors, '300'), map-get($neutral-colors, '300'));
+    @include transition(color);
+
+    &:hover {
+      color: map-get($brand-colors, 'primary');
+    }
+  }
+}
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: map-get($z-index, '40');
+  @include theme-background(rgba(map-get($neutral-colors, '900'), 0.95), rgba(map-get($neutral-colors, '900'), 0.95));
+  backdrop-filter: blur(8px);
+
+  @include respond-to('md') {
+    display: none;
+  }
+
+  &__content {
+    @include flex(column, center, center);
+    height: 100%;
+    gap: map-get($spacing, '6');
+  }
+
+  &__link {
+    font-size: map-get($font-sizes, '2xl');
+    @include theme-text(map-get($neutral-colors, '300'), map-get($neutral-colors, '300'));
+    @include transition(color);
+
+    &:hover {
+      color: map-get($brand-colors, 'primary');
+    }
+
+    &--active {
+      color: map-get($brand-colors, 'primary');
+    }
+  }
+} 
