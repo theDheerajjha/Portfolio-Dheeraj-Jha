@@ -27,9 +27,9 @@ const Contact = () => {
     {
       label: "Location",
       value: (
-        <div className="flex items-center">
-          <span className="mr-2">Mumbai, India</span>
-          <Flag code="IN" className="w-5 h-5" />
+        <div className="contact__location">
+          <span>Mumbai, India</span>
+          <Flag code="IN" className="contact__flag" />
         </div>
       ),
       icon: <FaLocationArrow />,
@@ -55,30 +55,21 @@ const Contact = () => {
   ];
 
   return (
-    <section
-      id="contact"
-      className="relative py-16 bg-neutral-900 text-neutral-100 overflow-hidden"
-    >
-      <div className="container mx-auto px-4 relative z-10">
+    <section id="contact" className="contact">
+      <div className="contact__container">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="max-w-md mx-auto"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-transparent bg-clip-text bg-gradient-cosmic">
-            Contact Information
-          </h2>
+          <h2 className="contact__title">Contact Information</h2>
 
-          <div className="bg-neutral-800 p-8 rounded-lg shadow-lg">
+          <div className="contact__card">
             {contactDetails.map((detail) => (
-              <div
-                key={detail.label}
-                className="flex justify-between items-center mb-4 pb-4 border-b border-neutral-700 last:border-b-0"
-              >
-                <span className="text-neutral-400 flex items-center">
+              <div key={detail.label} className="contact__detail">
+                <span className="contact__label">
                   {detail.icon && (
-                    <span className="mr-2 text-xl">{detail.icon}</span>
+                    <span className="contact__icon">{detail.icon}</span>
                   )}
                   {detail.label}
                 </span>
@@ -95,12 +86,12 @@ const Contact = () => {
                         ? "noopener noreferrer"
                         : undefined
                     }
-                    className="text-brand-300 hover:text-brand-200 transition duration-300 flex items-center"
+                    className="contact__link"
                   >
                     {detail.value}
                   </a>
                 ) : (
-                  <span className="text-neutral-200">{detail.value}</span>
+                  <span className="contact__value">{detail.value}</span>
                 )}
               </div>
             ))}

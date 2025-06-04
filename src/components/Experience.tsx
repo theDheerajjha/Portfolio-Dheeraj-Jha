@@ -33,44 +33,40 @@ const Experience: React.FC = () => {
   ];
 
   return (
-    <section
-      id="experience"
-      className="relative py-16 bg-neutral-900 text-neutral-100 overflow-hidden"
-    >
-      <div className="container mx-auto px-4 relative z-10">
+    <section id="experience" className="experience">
+      <div className="experience__container">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-transparent bg-clip-text bg-gradient-cosmic">
+          <h2 className="experience__title">
             Professional Experience
           </h2>
 
-          <div className="space-y-6">
+          <div className="experience__list">
             {experiences.map((exp, index) => (
               <motion.div
                 key={exp.company}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 * index }}
-                className="bg-neutral-800 p-6 rounded-lg hover:bg-neutral-700 transition duration-300"
+                className="experience__item"
               >
-                <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-xl font-semibold text-brand-300">
+                <div className="experience__header">
+                  <h3 className="experience__role">
                     {exp.role}
                   </h3>
-                  <span className="text-sm text-neutral-400">
+                  <span className="experience__duration">
                     {exp.duration}
                   </span>
                 </div>
 
-                <p className="text-neutral-300 mb-3">{exp.company}</p>
+                <p className="experience__company">{exp.company}</p>
 
-                <ul className="list-disc list-inside text-neutral-300 space-y-2">
+                <ul className="experience__highlights">
                   {exp.highlights.map((highlight) => (
-                    <li key={highlight} className="text-sm">
+                    <li key={highlight}>
                       {highlight}
                     </li>
                   ))}

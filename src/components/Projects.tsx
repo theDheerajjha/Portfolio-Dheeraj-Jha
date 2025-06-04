@@ -50,113 +50,59 @@ const Projects: React.FC = () => {
   ];
 
   return (
-    <>
-      <div id="projects">
-        <section
-          id="personal-projects"
-          className="relative py-16 bg-gradient-to-r from-neutral-800 via-neutral-900 to-black text-neutral-100 overflow-hidden"
-        >
-          <div className="container mx-auto px-4 relative z-10">
+    <section className="projects__section">
+      <div className="projects__container">
+        <h2 className="projects__title">Projects</h2>
+        
+        <div className="projects__grid">
+          {personalProjects.map((project, index) => (
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="max-w-5xl mx-auto"
+              key={project.name}
+              className="projects__card"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <h2 className="text-3xl md:text-4xl font-extrabold mb-10 text-center text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-pink-600">
-                Personal Projects
-              </h2>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                {personalProjects.map((project, index) => (
-                  <motion.div
-                    key={project.name}
-                    whileHover={{ scale: 1.05 }}
-                    initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.3 * index }}
-                    className="bg-neutral-800 p-6 rounded-lg hover:bg-neutral-700 transition duration-300"
-                  >
-                    <h3 className="text-2xl font-semibold mb-3 text-brand-300">
-                      {project.name}
-                    </h3>
-
-                    <p className="text-neutral-300 mb-4">{project.description}</p>
-
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2 py-1 bg-neutral-700 text-brand-300 rounded-full text-xs"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    <p className="text-neutral-400 text-sm italic">
-                      {project.role}
-                    </p>
-                  </motion.div>
+              <h3 className="projects__card-title">{project.name}</h3>
+              <p className="projects__card-description">{project.description}</p>
+              <div className="projects__tech-list">
+                {project.technologies.map((tech) => (
+                  <span key={tech} className="projects__tech-item">
+                    {tech}
+                  </span>
                 ))}
               </div>
+              <p className="projects__card-role">Role: {project.role}</p>
             </motion.div>
-          </div>
-        </section>
+          ))}
+        </div>
 
-        <section
-          id="organizational-projects"
-          className="relative py-16 bg-gradient-to-r from-neutral-800 via-neutral-900 to-black text-neutral-100 overflow-hidden"
-        >
-          <div className="container mx-auto px-4 relative z-10">
+        <h2 className="projects__title" style={{ marginTop: '4rem' }}>Organizational Projects</h2>
+        
+        <div className="projects__grid">
+          {organizationalProjects.map((project, index) => (
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="max-w-5xl mx-auto"
+              key={project.name}
+              className="projects__card"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <h2 className="text-3xl md:text-4xl font-extrabold mb-10 text-center text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-pink-600">
-                Organizational Projects
-              </h2>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                {organizationalProjects.map((project, index) => (
-                  <motion.div
-                    key={project.name}
-                    whileHover={{ scale: 1.05 }}
-                    initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.3 * index }}
-                    className="bg-neutral-800 p-6 rounded-lg hover:bg-neutral-700 transition duration-300"
-                  >
-                    <h3 className="text-2xl font-semibold mb-3 text-brand-300">
-                      {project.name}
-                    </h3>
-
-                    <p className="text-neutral-300 mb-4">{project.description}</p>
-
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2 py-1 bg-neutral-700 text-brand-300 rounded-full text-xs"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    <p className="text-neutral-400 text-sm italic">
-                      {project.role}
-                    </p>
-                  </motion.div>
+              <h3 className="projects__card-title">{project.name}</h3>
+              <p className="projects__card-description">{project.description}</p>
+              <div className="projects__tech-list">
+                {project.technologies.map((tech) => (
+                  <span key={tech} className="projects__tech-item">
+                    {tech}
+                  </span>
                 ))}
               </div>
+              <p className="projects__card-role">Role: {project.role}</p>
             </motion.div>
-          </div>
-        </section>
+          ))}
+        </div>
       </div>
-    </>
+    </section>
   );
 };
 
