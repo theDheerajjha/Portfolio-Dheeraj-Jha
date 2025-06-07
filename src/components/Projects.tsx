@@ -50,7 +50,7 @@ const Projects: React.FC = () => {
   ];
 
   return (
-    <section className="projects__section">
+    <section id="personal-projects" className="projects__section">
       <div className="projects__container">
         <h2 className="projects__title">Projects</h2>
         
