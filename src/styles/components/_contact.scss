@@ -9,39 +9,90 @@
   overflow: hidden;
 
   &__container {
-    max-width: 28rem;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 map-get($spacing, '4');
     position: relative;
     z-index: 10;
   }
 
+  &__content {
+    text-align: center;
+  }
+
   &__title {
     @include font-size('3xl');
     font-weight: 700;
-    margin-bottom: map-get($spacing, '10');
-    text-align: center;
-    background: linear-gradient(135deg, var(--color-brand-primary), var(--color-brand-secondary));
+    margin-bottom: map-get($spacing, '4');
+    background: linear-gradient(135deg, 
+      var(--color-brand-primary) 0%,
+      var(--color-brand-secondary) 50%,
+      var(--color-brand-accent) 100%
+    );
+    background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: gradient 8s linear infinite;
+  }
 
-    @include respond-to('md') {
-      @include font-size('4xl');
-    }
+  &__subtitle {
+    @include font-size('lg');
+    @include theme-text-secondary(map-get($neutral-colors, '600'), map-get($neutral-colors, '400'));
+    margin-bottom: map-get($spacing, '12');
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: map-get($spacing, '6');
+    margin-bottom: map-get($spacing, '12');
   }
 
   &__card {
     @include theme-background-secondary(map-get($neutral-colors, '100'), map-get($neutral-colors, '800'));
-    padding: map-get($spacing, '8');
     border-radius: map-get($border-radius, 'lg');
-    @include theme-shadow(map-get($neutral-colors, '200'), map-get($neutral-colors, '900'));
+    padding: map-get($spacing, '6');
+    @include transition(all);
+    border: 1px solid transparent;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      transform: translateY(-4px);
+      border-color: var(--color-brand-primary);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    &--direct {
+      background: linear-gradient(135deg,
+        rgba(var(--color-brand-primary-rgb), 0.05) 0%,
+        rgba(var(--color-brand-secondary-rgb), 0.05) 100%
+      );
+    }
+
+    &--social {
+      background: linear-gradient(135deg,
+        rgba(var(--color-brand-secondary-rgb), 0.05) 0%,
+        rgba(var(--color-brand-accent-rgb), 0.05) 100%
+      );
+    }
+  }
+
+  &__card-title {
+    @include font-size('xl');
+    font-weight: 600;
+    margin-bottom: map-get($spacing, '6');
+    color: var(--color-brand-primary);
+    text-align: center;
   }
 
   &__detail {
     @include flex(row, space-between, center);
     margin-bottom: map-get($spacing, '4');
     padding-bottom: map-get($spacing, '4');
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--color-border);
 
     &:last-child {
       margin-bottom: 0;
@@ -51,26 +102,32 @@
   }
 
   &__label {
-    @include theme-text-secondary(map-get($neutral-colors, '700'), map-get($neutral-colors, '300'));
+    @include theme-text-secondary(map-get($neutral-colors, '600'), map-get($neutral-colors, '400'));
     @include flex(row, flex-start, center);
+    @include font-size('sm');
   }
 
   &__icon {
     margin-right: map-get($spacing, '2');
-    @include font-size('xl');
+    @include font-size('lg');
+    color: var(--color-brand-primary);
   }
 
   &__value {
     @include theme-text(map-get($neutral-colors, '900'), map-get($neutral-colors, '50'));
+    @include font-size('sm');
   }
 
   &__link {
     color: var(--color-brand-primary);
-    @include transition(color);
+    @include transition(all);
     @include flex(row, flex-start, center);
+    @include font-size('sm');
+    font-weight: 500;
 
     &:hover {
-      color: lighten(map-get($brand-colors, 'primary'), 10%);
+      color: var(--color-brand-secondary);
+      transform: translateX(4px);
     }
   }
 
@@ -82,5 +139,7 @@
     width: 1.25rem;
     height: 1.25rem;
     margin-left: map-get($spacing, '2');
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 } 
