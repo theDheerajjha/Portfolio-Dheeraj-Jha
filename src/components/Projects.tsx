@@ -28,31 +28,35 @@ const Projects: React.FC = () => {
 
   const organizationalProjects = [
     {
-      name: "Axxess Home Care",
-      description:
-        "Cloud-based software product for home care solutions used by over 1000 agencies in the United States.",
-      technologies: ["React.js", "NextJS", "Tailwind CSS", "MaterialUI"],
-      role: "Developed user-facing features and optimized web structures.",
+      name: "WebMD - PageBuilder CMS",
+      description: "Built dynamic frontend components for an internal PageBuilder CMS tool enabling non-technical users to design and publish content easily. Enhanced deployment pipeline and ensured cross-browser compatibility for seamless UX. Leveraged AI tools (Asterix & Athena) to automate component creation, debugging, and test writing, boosting development speed by 40%.",
+      technologies: ["React", "Vue 3", "TypeScript", "Vite", "Asterix AI", "Athena AI"],
+      role: "SDE - Frontend",
+      duration: "June 2024 – Present",
+      location: "Mumbai, India"
     },
     {
-      name: "Wolken's Desk",
-      description: "Enterprise service management platform.",
-      technologies: ["React", "Redux", "MaterialUI"],
-      role: "Implemented frontend features and improved user experience.",
+      name: "Axxess Home Care Platform",
+      description: "Delivered core features like visit scheduling, care plans, and availability tracking, streamlining operations for 1000+ US-based agencies. Built responsive, pixel-perfect UI components for a cloud-based healthcare app used across devices. Improved data syncing and loading efficiency through optimized API integration and real-time updates.",
+      technologies: ["React", "Next.js", "Tailwind CSS", "Material UI", "REST APIs"],
+      role: "Frontend Engineer 1",
+      duration: "May 2022 – June 2024",
+      location: "Remote (India)"
     },
     {
-      name: "Medscape",
-      description:
-        "A medical resource platform providing healthcare professionals with the latest medical news, drug information, and clinical guidelines.",
-      technologies: ["React", "GraphQL", "Node.js"],
-      role: "Led the frontend team in building and optimizing key features for Medscape.",
+      name: "Wolken's Desk - Service Management App",
+      description: "Developed and enhanced features like ticket management, real-time notifications, and workflow automation for a SaaS-based service desk platform. Implemented server-side pagination and optimized performance for faster data rendering. Collaborated cross-functionally with backend and design teams to elevate overall UI/UX quality.",
+      technologies: ["React", "TypeScript", "Axios", "Material UI", "SCSS"],
+      role: "Associate Software Developer - UI",
+      duration: "Aug 2021 – May 2022",
+      location: "Bangalore, India"
     },
   ];
 
   return (
     <section id="personal-projects" className="projects__section">
       <div className="projects__container">
-        <h2 className="projects__title">Projects</h2>
+        <h2 className="projects__title">Personal Projects</h2>
         
         <div className="projects__grid">
           {personalProjects.map((project, index) => (
@@ -89,6 +93,11 @@ const Projects: React.FC = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <h3 className="projects__card-title">{project.name}</h3>
+              <div className="projects__card-meta">
+                <p className="projects__card-role">{project.role}</p>
+                <p className="projects__card-duration">{project.duration}</p>
+                <p className="projects__card-location">{project.location}</p>
+              </div>
               <p className="projects__card-description">{project.description}</p>
               <div className="projects__tech-list">
                 {project.technologies.map((tech) => (
@@ -97,7 +106,6 @@ const Projects: React.FC = () => {
                   </span>
                 ))}
               </div>
-              <p className="projects__card-role">Role: {project.role}</p>
             </motion.div>
           ))}
         </div>

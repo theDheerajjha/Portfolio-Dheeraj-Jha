@@ -11,7 +11,7 @@
   }
 
   &__container {
-    max-width: 64rem;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 map-get($spacing, '4');
     position: relative;
@@ -20,70 +20,108 @@
 
   &__title {
     @include font-size('3xl');
-    font-weight: 800;
-    margin-bottom: map-get($spacing, '10');
+    font-weight: 700;
     text-align: center;
-    background: linear-gradient(135deg, var(--color-brand-primary), var(--color-brand-secondary));
+    margin-bottom: map-get($spacing, '12');
+    background: linear-gradient(135deg, 
+      var(--color-brand-primary) 0%,
+      var(--color-brand-secondary) 50%,
+      var(--color-brand-accent) 100%
+    );
+    background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
-    @include respond-to('md') {
-      @include font-size('4xl');
-    }
+    animation: gradient 8s linear infinite;
   }
 
   &__grid {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: map-get($spacing, '6');
-
-    @include respond-to('md') {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    margin-bottom: map-get($spacing, '12');
   }
 
   &__card {
     @include theme-background-secondary(map-get($neutral-colors, '100'), map-get($neutral-colors, '800'));
-    padding: map-get($spacing, '6');
     border-radius: map-get($border-radius, 'lg');
-    @include theme-shadow(map-get($neutral-colors, '200'), map-get($neutral-colors, '900'));
-    @include transition(transform, box-shadow);
+    padding: map-get($spacing, '6');
+    @include transition(all);
+    border: 1px solid transparent;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
     &:hover {
       transform: translateY(-4px);
-      @include theme-shadow(map-get($neutral-colors, '300'), map-get($neutral-colors, '800'));
+      border-color: var(--color-brand-primary);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
     }
   }
 
   &__card-title {
-    @include font-size('2xl');
-    font-weight: 600;
-    margin-bottom: map-get($spacing, '3');
+    @include font-size('xl');
+    font-weight: 700;
+    margin-bottom: map-get($spacing, '4');
     color: var(--color-brand-primary);
   }
 
+  &__card-meta {
+    margin-bottom: map-get($spacing, '4');
+    padding-bottom: map-get($spacing, '4');
+    border-bottom: 1px solid var(--color-border);
+
+    p {
+      @include font-size('sm');
+      @include theme-text-secondary(map-get($neutral-colors, '600'), map-get($neutral-colors, '400'));
+      margin-bottom: map-get($spacing, '2');
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__card-role {
+    font-weight: 600;
+    color: var(--color-brand-secondary) !important;
+  }
+
+  &__card-duration {
+    font-family: var(--font-mono);
+  }
+
+  &__card-location {
+    font-style: italic;
+  }
+
   &__card-description {
+    @include font-size('base');
     @include theme-text-secondary(map-get($neutral-colors, '700'), map-get($neutral-colors, '300'));
     margin-bottom: map-get($spacing, '4');
+    line-height: 1.6;
   }
 
   &__tech-list {
-    @include flex(row, flex-start, center);
+    display: flex;
     flex-wrap: wrap;
     gap: map-get($spacing, '2');
     margin-bottom: map-get($spacing, '4');
   }
 
   &__tech-item {
-    padding: map-get($spacing, '1') map-get($spacing, '2');
-    @include theme-background-tertiary(map-get($neutral-colors, '200'), map-get($neutral-colors, '700'));
-    color: var(--color-brand-primary);
-    border-radius: map-get($border-radius, 'full');
-    @include font-size('xs');
-  }
-
-  &__card-role {
-    @include theme-text-secondary(map-get($neutral-colors, '700'), map-get($neutral-colors, '300'));
     @include font-size('sm');
-    font-style: italic;
+    padding: map-get($spacing, '1') map-get($spacing, '3');
+    @include theme-background-secondary(map-get($neutral-colors, '200'), map-get($neutral-colors, '700'));
+    border-radius: map-get($border-radius, 'full');
+    @include theme-text-secondary(map-get($neutral-colors, '700'), map-get($neutral-colors, '300'));
+    @include transition(all);
+    font-family: var(--font-mono);
+
+    &:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, 
+        rgba(var(--color-brand-primary-rgb), 0.1) 0%,
+        rgba(var(--color-brand-secondary-rgb), 0.1) 100%
+      );
+      color: var(--color-brand-primary);
+    }
   }
 } 
