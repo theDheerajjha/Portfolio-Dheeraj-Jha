@@ -64,6 +64,14 @@
     font-weight: 700;
     margin-bottom: map-get($spacing, '4');
     color: var(--color-brand-primary);
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: var(--color-brand-secondary);
+      transform: translateX(4px);
+    }
   }
 
   &__card-meta {
