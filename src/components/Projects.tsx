@@ -4,20 +4,20 @@ import { motion } from "framer-motion";
 const Projects: React.FC = () => {
   const personalProjects = [
     {
-      name: "MovieFlix",
-      description:
-        "A movie discovery platform for users to explore and rate movies.",
-      technologies: ["React", "Node.js", "Express.js", "MongoDB"],
-      role: "Designed and built the platform for searching, rating, and sharing movies.",
-      link: "https://github.com/yourusername/moviefix"
-    },
-    {
       name: "Tindog",
       description:
         "A dating app for dogs, helping pet owners find the perfect match for their pets.",
       technologies: ["HTML", "CSS", "JavaScript"],
       role: "Built a responsive app with user-friendly UI and integrated pet matchmaking features.",
-      link: "https://github.com/yourusername/tindog"
+      link: "https://thedheerajjha.github.io/Tindog-site/"
+    },
+    {
+      name: "MovieFlix",
+      description:
+        "A movie discovery platform for users to explore and rate movies.",
+      technologies: ["React", "Node.js", "Express.js", "MongoDB"],
+      role: "Designed and built the platform for searching, rating, and sharing movies.",
+      link: "https://github.com/theDheerajjha/Movieflix"
     },
     {
       name: "Workwise-US",
@@ -25,19 +25,19 @@ const Projects: React.FC = () => {
         "A platform to streamline employee experience, from recruitment to performance management.",
       technologies: ["React.js", "TypeScript", "Tailwind CSS"],
       role: "Developed scalable features and integrated APIs for smoother user experience.",
-      link: "https://github.com/yourusername/workwise"
+      link: "https://github.com/theDheerajjha/workwise-us"
     },
   ];
 
   const organizationalProjects = [
     {
-      name: "WebMD - PageBuilder CMS",
+      name: "WebMD - PageBuilder",
       description: "Built dynamic frontend components for an internal PageBuilder CMS tool enabling non-technical users to design and publish content easily. Enhanced deployment pipeline and ensured cross-browser compatibility for seamless UX. Leveraged AI tools (Asterix & Athena) to automate component creation, debugging, and test writing, boosting development speed by 40%.",
       technologies: ["React", "Vue 3", "TypeScript", "Vite", "Asterix AI", "Athena AI"],
       role: "SDE - Frontend",
       duration: "June 2024 – Present",
       location: "Mumbai, India",
-      link: "https://webmd.com"
+      link: "https://www.webmd.com"
     },
     {
       name: "Axxess Home Care Platform",
@@ -46,7 +46,7 @@ const Projects: React.FC = () => {
       role: "Frontend Engineer 1",
       duration: "May 2022 – June 2024",
       location: "Remote (India)",
-      link: "https://axxess.com"
+      link: "https://www.linkedin.com/products/axxess-consult-axxess-home-care/?lipi=urn%3Ali%3Apage%3Acompanies_company_products%3B0b7d20d1-e26f-4b48-a039-c9cf295bd684"
     },
     {
       name: "Wolken's Desk - Service Management App",
@@ -55,7 +55,7 @@ const Projects: React.FC = () => {
       role: "Associate Software Developer - UI",
       duration: "Aug 2021 – May 2022",
       location: "Bangalore, India",
-      link: "https://wolken.com"
+      link: "https://www.wolkensoftware.com/products/customer-service"
     },
   ];
 
@@ -73,7 +73,9 @@ const Projects: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <h3 className="projects__card-title">{project.name}</h3>
+              <a href={project.link} className="projects__card-title" target="_blank" rel="noopener noreferrer">
+                {project.name}
+              </a>
               <p className="projects__card-description">{project.description}</p>
               <div className="projects__tech-list">
                 {project.technologies.map((tech) => (
@@ -83,9 +85,6 @@ const Projects: React.FC = () => {
                 ))}
               </div>
               <p className="projects__card-role">Role: {project.role}</p>
-              <a href={project.link} className="projects__card-link" target="_blank" rel="noopener noreferrer">
-                View Project →
-              </a>
             </motion.div>
           ))}
         </div>
@@ -101,7 +100,9 @@ const Projects: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <h3 className="projects__card-title">{project.name}</h3>
+              <a href={project.link} className="projects__card-title" target="_blank" rel="noopener noreferrer">
+                {project.name}
+              </a>
               <div className="projects__card-meta">
                 <p className="projects__card-role">{project.role}</p>
                 <p className="projects__card-duration">{project.duration}</p>
@@ -115,9 +116,6 @@ const Projects: React.FC = () => {
                   </span>
                 ))}
               </div>
-              <a href={project.link} className="projects__card-link" target="_blank" rel="noopener noreferrer">
-                View Project →
-              </a>
             </motion.div>
           ))}
         </div>
