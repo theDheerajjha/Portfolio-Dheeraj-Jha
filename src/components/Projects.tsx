@@ -31,7 +31,7 @@ const Projects: React.FC = () => {
 
   const organizationalProjects = [
     {
-      name: "WebMD - PageBuilder CMS",
+      name: "WebMD - PageBuilder",
       description: "Built dynamic frontend components for an internal PageBuilder CMS tool enabling non-technical users to design and publish content easily. Enhanced deployment pipeline and ensured cross-browser compatibility for seamless UX. Leveraged AI tools (Asterix & Athena) to automate component creation, debugging, and test writing, boosting development speed by 40%.",
       technologies: ["React", "Vue 3", "TypeScript", "Vite", "Asterix AI", "Athena AI"],
       role: "SDE - Frontend",
