@@ -37,7 +37,7 @@ const Projects: React.FC = () => {
       role: "SDE - Frontend",
       duration: "June 2024 – Present",
       location: "Mumbai, India",
-      link: "https://webmd.com"
+      link: "https://www.webmd.com"
     },
     {
       name: "Axxess Home Care Platform",
@@ -46,7 +46,7 @@ const Projects: React.FC = () => {
       role: "Frontend Engineer 1",
       duration: "May 2022 – June 2024",
       location: "Remote (India)",
-      link: "https://axxess.com"
+      link: "https://www.linkedin.com/products/axxess-consult-axxess-home-care/?lipi=urn%3Ali%3Apage%3Acompanies_company_products%3B0b7d20d1-e26f-4b48-a039-c9cf295bd684"
     },
     {
       name: "Wolken's Desk - Service Management App",
@@ -55,7 +55,7 @@ const Projects: React.FC = () => {
       role: "Associate Software Developer - UI",
       duration: "Aug 2021 – May 2022",
       location: "Bangalore, India",
-      link: "https://wolken.com"
+      link: "https://www.wolkensoftware.com/products/customer-service"
     },
   ];
 
