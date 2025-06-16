@@ -9,6 +9,7 @@ const Projects: React.FC = () => {
         "A movie discovery platform for users to explore and rate movies.",
       technologies: ["React", "Node.js", "Express.js", "MongoDB"],
       role: "Designed and built the platform for searching, rating, and sharing movies.",
+      link: "https://github.com/yourusername/moviefix"
     },
     {
       name: "Tindog",
@@ -16,6 +17,7 @@ const Projects: React.FC = () => {
         "A dating app for dogs, helping pet owners find the perfect match for their pets.",
       technologies: ["HTML", "CSS", "JavaScript"],
       role: "Built a responsive app with user-friendly UI and integrated pet matchmaking features.",
+      link: "https://github.com/yourusername/tindog"
     },
     {
       name: "Workwise-US",
@@ -23,6 +25,7 @@ const Projects: React.FC = () => {
         "A platform to streamline employee experience, from recruitment to performance management.",
       technologies: ["React.js", "TypeScript", "Tailwind CSS"],
       role: "Developed scalable features and integrated APIs for smoother user experience.",
+      link: "https://github.com/yourusername/workwise"
     },
   ];
 
@@ -33,7 +36,8 @@ const Projects: React.FC = () => {
       technologies: ["React", "Vue 3", "TypeScript", "Vite", "Asterix AI", "Athena AI"],
       role: "SDE - Frontend",
       duration: "June 2024 – Present",
-      location: "Mumbai, India"
+      location: "Mumbai, India",
+      link: "https://webmd.com"
     },
     {
       name: "Axxess Home Care Platform",
@@ -41,7 +45,8 @@ const Projects: React.FC = () => {
       technologies: ["React", "Next.js", "Tailwind CSS", "Material UI", "REST APIs"],
       role: "Frontend Engineer 1",
       duration: "May 2022 – June 2024",
-      location: "Remote (India)"
+      location: "Remote (India)",
+      link: "https://axxess.com"
     },
     {
       name: "Wolken's Desk - Service Management App",
@@ -49,7 +54,8 @@ const Projects: React.FC = () => {
       technologies: ["React", "TypeScript", "Axios", "Material UI", "SCSS"],
       role: "Associate Software Developer - UI",
       duration: "Aug 2021 – May 2022",
-      location: "Bangalore, India"
+      location: "Bangalore, India",
+      link: "https://wolken.com"
     },
   ];
 
@@ -77,6 +83,9 @@ const Projects: React.FC = () => {
                 ))}
               </div>
               <p className="projects__card-role">Role: {project.role}</p>
+              <a href={project.link} className="projects__card-link" target="_blank" rel="noopener noreferrer">
+                View Project →
+              </a>
             </motion.div>
           ))}
         </div>
@@ -106,6 +115,9 @@ const Projects: React.FC = () => {
                   </span>
                 ))}
               </div>
+              <a href={project.link} className="projects__card-link" target="_blank" rel="noopener noreferrer">
+                View Project →
+              </a>
             </motion.div>
           ))}
         </div>

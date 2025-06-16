@@ -88,6 +88,21 @@
     margin-top: auto;
     padding-top: map-get($spacing, '3');
     border-top: 1px solid var(--color-border);
+    margin-bottom: map-get($spacing, '3');
+  }
+
+  &__card-link {
+    display: inline-block;
+    color: var(--color-brand-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: map-get($spacing, '2') 0;
+
+    &:hover {
+      color: var(--color-brand-secondary);
+      transform: translateX(4px);
+    }
   }
 
   &__card-duration {
