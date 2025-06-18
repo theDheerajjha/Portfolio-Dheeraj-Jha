@@ -22,8 +22,8 @@
     --color-neutral-#{$name}: #{$color};
   }
 
-  // Theme Colors
-  @each $name, $color in map-get($theme-colors, 'light') {
+  // Theme Colors - Default to dark theme
+  @each $name, $color in map-get($theme-colors, 'dark') {
     --color-#{$name}: #{$color};
   }
 
@@ -62,9 +62,9 @@
   }
 }
 
-// Dark theme
-[data-theme='dark'] {
-  @each $name, $color in map-get($theme-colors, 'dark') {
+// Light theme
+[data-theme='light'] {
+  @each $name, $color in map-get($theme-colors, 'light') {
     --color-#{$name}: #{$color};
   }
 }
