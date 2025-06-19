@@ -82,17 +82,16 @@ const Navbar: React.FC = () => {
                 href={item.href}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                className={`navbar__link ${
-                  activeSection === item.name.toLowerCase().replace(" ", "")
+                className={`navbar__link ${activeSection === item.name.toLowerCase().replace(" ", "")
                     ? 'navbar__link--active'
                     : ''
-                }`}
+                  }`}
               >
                 {item.name}
                 <span className="navbar__link-underline"></span>
               </motion.a>
             ))}
-            
+
             {/* Theme Toggle Button */}
             <motion.button
               whileHover={{ scale: 1.1 }}
@@ -133,7 +132,7 @@ const Navbar: React.FC = () => {
                 </svg>
               )}
             </motion.button>
-            
+
             <button
               onClick={toggleMobileMenu}
               className="navbar__mobile-toggle"
@@ -207,11 +206,10 @@ const Navbar: React.FC = () => {
                       delay: (navItems.length - index) * 0.1,
                     },
                   }}
-                  className={`mobile-menu__link ${
-                    activeSection === item.name.toLowerCase().replace(" ", "")
+                  className={`mobile-menu__link ${activeSection === item.name.toLowerCase().replace(" ", "")
                       ? 'mobile-menu__link--active'
                       : ''
-                  }`}
+                    }`}
                 >
                   {item.name}
                 </motion.a>
