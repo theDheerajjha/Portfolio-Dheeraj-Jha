@@ -36,6 +36,7 @@ const Skills: React.FC = () => {
     "REST APIs",
     "Responsive Design",
     "Performance Optimization",
+    "Webpack",
   ];
 
   return (
