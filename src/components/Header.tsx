@@ -25,6 +25,17 @@ const Header: React.FC = () => {
       } else {
         clearInterval(typeWriter);
 
+        // Smooth scroll to the about section after typing is done
+        setTimeout(() => {
+          const aboutSection = document.getElementById("about");
+          if (aboutSection) {
+            aboutSection.scrollIntoView({ behavior: "smooth" });
+          } else {
+            // fallback: set hash if element not found
+            window.location.hash = "#about";
+          }
+        }, 500); // slight delay for UX
+
         // Cycle through subtitles
         const subtitleCycle = setInterval(() => {
           setSubtitleIndex((prev) => (prev + 1) % subtitleTexts.length);
