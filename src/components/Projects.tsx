@@ -36,34 +36,7 @@ const Projects: React.FC = () => {
   return (
     <section id="personal-projects" className="projects__section">
       <div className="projects__container">
-        <h2 className="projects__title">Personal Projects</h2>
-        
-        <div className="projects__grid">
-          {personalProjects.map((project, index) => (
-            <motion.div
-              key={project.name}
-              className="projects__card"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <a href={project.link} className="projects__card-title" target="_blank" rel="noopener noreferrer">
-                {project.name}
-              </a>
-              <p className="projects__card-description">{project.description}</p>
-              <div className="projects__tech-list">
-                {project.technologies.map((tech) => (
-                  <span key={tech} className="projects__tech-item">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <p className="projects__card-role">Role: {project.role}</p>
-            </motion.div>
-          ))}
-        </div>
-
-        <h2 className="projects__title" style={{ marginTop: '4rem' }}>Organizational Projects</h2>
+        <h2 className="projects__title">Organizational Projects</h2>
         
         <div className="projects__grid">
           {organizationalProjects.map((project, index) => (
