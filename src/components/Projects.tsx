@@ -2,33 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const Projects: React.FC = () => {
-  const personalProjects = [
-    {
-      name: "Tindog",
-      description:
-        "A dating app for dogs, helping pet owners find the perfect match for their pets.",
-      technologies: ["HTML", "CSS", "JavaScript"],
-      role: "Built a responsive app with user-friendly UI and integrated pet matchmaking features.",
-      link: "https://thedheerajjha.github.io/Tindog-site/"
-    },
-    {
-      name: "MovieFlix",
-      description:
-        "A movie discovery platform for users to explore and rate movies.",
-      technologies: ["React", "Node.js", "Express.js", "MongoDB"],
-      role: "Designed and built the platform for searching, rating, and sharing movies.",
-      link: "https://github.com/theDheerajjha/Movieflix"
-    },
-    {
-      name: "Workwise-US",
-      description:
-        "A platform to streamline employee experience, from recruitment to performance management.",
-      technologies: ["React.js", "TypeScript", "Tailwind CSS"],
-      role: "Developed scalable features and integrated APIs for smoother user experience.",
-      link: "https://github.com/theDheerajjha/workwise-us"
-    },
-  ];
-
+ 
   const organizationalProjects = [
     {
       name: "WebMD - PageBuilder",
