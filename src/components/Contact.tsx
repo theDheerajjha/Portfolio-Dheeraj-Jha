@@ -64,74 +64,59 @@ const Contact = () => {
   const socialLinks = contactDetails.filter(detail => detail.category === "social");
 
   return (
-    <section id="contact" className="contact">
-      <div className="contact__container">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="contact__content"
-        >
-          <h2 className="contact__title">Let's Connect</h2>
-          <p className="contact__subtitle">Feel free to reach out through any of these channels</p>
-
-          <div className="contact__grid">
-            <motion.div 
-              className="contact__card contact__card--direct"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <h3 className="contact__card-title">Direct Contact</h3>
-              {directContact.map((detail) => (
-                <div key={detail.label} className="contact__detail">
-                  <span className="contact__label">
-                    <span className="contact__icon">{detail.icon}</span>
-                    {detail.label}
-                  </span>
-                  {detail.link ? (
-                    <a
-                      href={detail.link}
-                      target={detail.label !== "Email" && detail.label !== "Phone" ? "_blank" : undefined}
-                      rel={detail.label !== "Email" && detail.label !== "Phone" ? "noopener noreferrer" : undefined}
-                      className="contact__link"
-                    >
-                      {detail.value}
-                    </a>
-                  ) : (
-                    <span className="contact__value">{detail.value}</span>
-                  )}
-                </div>
-              ))}
-            </motion.div>
-
-            <motion.div 
-              className="contact__card contact__card--social"
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              <h3 className="contact__card-title">Social Links</h3>
-              {socialLinks.map((detail) => (
-                <div key={detail.label} className="contact__detail">
-                  <span className="contact__label">
-                    <span className="contact__icon">{detail.icon}</span>
-                    {detail.label}
-                  </span>
+    <section id="contact" className="contact py-12 px-4 max-w-3xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="flex flex-col items-center"
+      >
+        <h2 className="contact__title text-3xl font-bold mb-2 text-center">Let’s Work Together</h2>
+        <p className="contact__subtitle mb-8 text-gray-700 text-center max-w-xl">Interested in collaborating or have a project in mind? Reach out below!</p>
+        <div className="flex flex-col sm:flex-row gap-4 mb-10 w-full justify-center items-center">
+          <a href="mailto:write4dheeraj@gmail.com" className="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 text-center min-w-[180px]" aria-label="Email Dheeraj">Let’s Work Together</a>
+          <a href="/src/assets/Resume - Dheeraj Jha.pdf" download className="inline-block bg-gray-200 text-gray-800 px-6 py-2 rounded-lg font-semibold shadow hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 text-center min-w-[180px]" aria-label="Download Resume">Download Resume</a>
+        </div>
+        <div className="w-full bg-white rounded-xl shadow-lg p-8 flex flex-col md:flex-row gap-8 items-center md:items-start">
+          <div className="flex-1 w-full">
+            <h3 className="contact__card-title font-semibold mb-3 text-lg text-blue-700">Direct Contact</h3>
+            {directContact.map((detail) => (
+              <div key={detail.label} className="contact__detail flex items-center gap-2 mb-2 text-gray-800">
+                <span className="contact__icon text-blue-600 text-xl">{detail.icon}</span>
+                {detail.link ? (
                   <a
                     href={detail.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="contact__link"
+                    target={detail.label !== "Email" && detail.label !== "Phone" ? "_blank" : undefined}
+                    rel={detail.label !== "Email" && detail.label !== "Phone" ? "noopener noreferrer" : undefined}
+                    className="contact__link hover:underline"
                   >
                     {detail.value}
                   </a>
-                </div>
-              ))}
-            </motion.div>
+                ) : (
+                  <span className="contact__value">{detail.value}</span>
+                )}
+              </div>
+            ))}
           </div>
-        </motion.div>
-      </div>
+          <div className="flex-1 w-full mt-6 md:mt-0">
+            <h3 className="contact__card-title font-semibold mb-3 text-lg text-blue-700 text-center">Social Links</h3>
+            <div className="flex gap-4 md:gap-6 justify-center">
+              {socialLinks.map((detail) => (
+                <a
+                  key={detail.label}
+                  href={detail.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact__icon text-2xl text-gray-600 hover:text-blue-600 transition-colors"
+                  aria-label={detail.label}
+                >
+                  {detail.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </motion.div>
     </section>
   );
 };

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import profilePic from "../assets/dk-dp-cas.jpg";
-import teaImage from "../assets/work.jpg"; // Replace with the actual tea image path
+import teaImage from "../assets/work.jpg";
 
 const About: React.FC = () => {
   const [imagesLoaded, setImagesLoaded] = useState({
@@ -18,19 +18,15 @@ const About: React.FC = () => {
 
   return (
     <section id="about" className="about">
-      {/* Background Shapes */}
       <div className="about__background"></div>
       <div className="about__background about__background--secondary"></div>
-
       <div className="about__container">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          {/* Profile Section */}
           <div className="about__profile">
-            {/* Profile Image */}
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
@@ -48,8 +44,6 @@ const About: React.FC = () => {
                 />
               </div>
             </motion.div>
-
-            {/* About Content */}
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -57,26 +51,19 @@ const About: React.FC = () => {
               className="about__content"
             >
               <h2 className="about__title">
-                👨‍💻 Digital Craftsman 🛠️
+                🚀 Frontend Specialist & Digital Craftsman
               </h2>
               <p className="about__text">
-                Turning ideas into stunning web applications. Whether it's
-                debugging tricky code or mentoring the next generation, I'm
-                driven by innovation and collaboration. 🚀
+                Hi, I’m Dheeraj Jha—a frontend engineer passionate about building web experiences that are fast, accessible, and delightful. With 4+ years of experience in React, Vue.js, and TypeScript, I thrive on solving complex UI challenges and making products shine for users and teams alike.
               </p>
               <p className="about__text">
-                As a Software Engineer at WebMD, I've had the opportunity to
-                work on impactful web solutions that reach millions. The journey
-                has been a constant evolution of learning, from my college days
-                building simple web apps to solving complex problems in
-                real-world applications. My passion lies in the intersection of
-                technology and user experience, and I'm always looking for ways
-                to improve and innovate in the digital space. 💻💡
+                I love architecting scalable design systems, optimizing build pipelines, and mentoring fellow developers. At WebMD, I accelerated feature delivery by 30% using in-house AI tooling, and at Cavista, I improved operational efficiency for 1000+ healthcare agencies with reusable, accessible UI components. My work has reduced build times by 25% and enabled rapid rollout of new features across large teams.
+              </p>
+              <p className="about__text">
+                Whether it’s introducing modern frameworks, automating workflows, or leading code quality initiatives, I’m driven by a desire to create impact and empower others. Let’s build something remarkable together.
               </p>
             </motion.div>
           </div>
-
-          {/* Tea & Coding Section */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -85,30 +72,10 @@ const About: React.FC = () => {
           >
             <div className="about__tea-content">
               <h3 className="about__tea-title">
-                🍵 Tea & Coding <span className="animate-bounce ml-2">✨</span>
+                ☕ Tea & Code Moments
               </h3>
               <p className="about__tea-text">
-                A steaming cup of tea has been my constant companion through
-                late-night coding marathons. From debugging tricky bugs to
-                building seamless applications, tea has provided that little
-                boost of inspiration and focus. It's become a ritual — a moment
-                of clarity that fuels my creative process. 🌱💡
-              </p>
-              <p className="about__tea-text">
-                My coding journey began during my college years. I remember
-                countless late-night sessions where a hot cup of chai kept me
-                going through the grind of learning new languages and
-                technologies. Those were the days when I built my first React
-                app, and little did I know that it would spark a deep passion
-                for web development. Fast forward to today, I'm using
-                technologies like TypeScript, Vue.js, and GraphQL to build
-                impactful applications that reach millions of users. 🚀
-              </p>
-              <p className="about__tea-text">
-                Over the years, I've realized that every line of code tells a
-                story, every bug teaches a lesson, and every project is an
-                opportunity to innovate. And the best part? It's just the
-                beginning. 🌟
+                My best ideas (and bug fixes) often arrive with a hot cup of chai. From late-night coding sprints in college to launching production apps for millions, I’ve learned that every line of code is a chance to make a difference—and a story worth sharing.
               </p>
             </div>
             <motion.div
@@ -124,28 +91,6 @@ const About: React.FC = () => {
                 className={`about__tea-image ${imagesLoaded.tea ? 'opacity-70' : 'opacity-0'}`}
               />
             </motion.div>
-          </motion.div>
-
-          {/* Fun Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="about__fun-section"
-          >
-            <h3 className="about__fun-title">
-              🎉 Coding is Fun <span className="animate-bounce ml-2">🔥</span>
-            </h3>
-            <p className="about__fun-text">
-              With a passion for learning and teaching, I aim to innovate,
-              inspire, and build solutions that make a difference. 🌟
-            </p>
-            <p className="about__fun-text">
-              As a mentor, I enjoy guiding the next generation of developers,
-              sharing my knowledge, and fostering a culture of continuous
-              learning. The journey of building something impactful is always
-              more fun when shared with others. 🎓👨‍💻
-            </p>
           </motion.div>
         </motion.div>
       </div>
