@@ -1,74 +1,16 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { projects } from "../data/projects";
+import ProjectCard from "./ui/ProjectCard";
 
-const Projects: React.FC = () => {
- 
-  const organizationalProjects = [
-    {
-      name: "WebMD - PageBuilder",
-      description: "Built dynamic frontend components for an internal PageBuilder CMS tool enabling non-technical users to design and publish content easily. Enhanced deployment pipeline and ensured cross-browser compatibility for seamless UX. Leveraged AI tools (Asterix & Athena) to automate component creation, debugging, and test writing, boosting development speed by 40%.",
-      technologies: ["React", "Vue 3", "TypeScript", "Vite", "Asterix AI", "Athena AI"],
-      role: "SDE - Frontend",
-      duration: "June 2024 – Present",
-      location: "Mumbai, India",
-      link: "https://www.webmd.com"
-    },
-    {
-      name: "Axxess Home Care Platform",
-      description: "Delivered core features like visit scheduling, care plans, and availability tracking, streamlining operations for 1000+ US-based agencies. Built responsive, pixel-perfect UI components for a cloud-based healthcare app used across devices. Improved data syncing and loading efficiency through optimized API integration and real-time updates.",
-      technologies: ["React", "Next.js", "Tailwind CSS", "Material UI", "REST APIs"],
-      role: "Frontend Engineer 1",
-      duration: "May 2022 – June 2024",
-      location: "Remote (India)",
-      link: "https://www.linkedin.com/products/axxess-consult-axxess-home-care/?lipi=urn%3Ali%3Apage%3Acompanies_company_products%3B0b7d20d1-e26f-4b48-a039-c9cf295bd684"
-    },
-    {
-      name: "Wolken's Desk - Service Management App",
-      description: "Developed and enhanced features like ticket management, real-time notifications, and workflow automation for a SaaS-based service desk platform. Implemented server-side pagination and optimized performance for faster data rendering. Collaborated cross-functionally with backend and design teams to elevate overall UI/UX quality.",
-      technologies: ["React", "TypeScript", "Axios", "Material UI", "SCSS"],
-      role: "Associate Software Developer - UI",
-      duration: "Aug 2021 – May 2022",
-      location: "Bangalore, India",
-      link: "https://www.wolkensoftware.com/products/customer-service"
-    },
-  ];
-
-  return (
-    <section id="personal-projects" className="projects__section">
-      <div className="projects__container">
-        <h2 className="projects__title">Organizational Projects</h2>
-        
-        <div className="projects__grid">
-          {organizationalProjects.map((project, index) => (
-            <motion.div
-              key={project.name}
-              className="projects__card"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <a href={project.link} className="projects__card-title" target="_blank" rel="noopener noreferrer">
-                {project.name}
-              </a>
-              <div className="projects__card-meta">
-                <p className="projects__card-role">{project.role}</p>
-                <p className="projects__card-duration">{project.duration}</p>
-                <p className="projects__card-location">{project.location}</p>
-              </div>
-              <p className="projects__card-description">{project.description}</p>
-              <div className="projects__tech-list">
-                {project.technologies.map((tech) => (
-                  <span key={tech} className="projects__tech-item">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+const Projects: React.FC = () => (
+  <section id="projects" className="py-12 px-4 max-w-5xl mx-auto">
+    <h2 className="text-3xl font-bold mb-8 text-center">Projects</h2>
+    <div>
+      {projects.map((project, idx) => (
+        <ProjectCard key={project.title} {...project} />
+      ))}
+    </div>
+  </section>
+);
 
 export default Projects;
