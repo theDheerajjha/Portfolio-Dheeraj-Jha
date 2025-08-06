@@ -35,8 +35,6 @@ const Header: React.FC = () => {
             window.location.hash = "#about";
           }
         }, 500); // slight delay for UX
-
-        // Cycle through subtitles
         const subtitleCycle = setInterval(() => {
           setSubtitleIndex((prev) => (prev + 1) % subtitleTexts.length);
         }, 3000);
