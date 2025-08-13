@@ -18,7 +18,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       <img 
         src={image} 
         alt={`${title} screenshot`} 
-        className="projects__media-img transition-transform duration-200 hover:scale-105" 
+        className="projects__media-img transition-transform duration-200" 
       />
     </div>
     <div className="p-6 flex-1 flex flex-col">

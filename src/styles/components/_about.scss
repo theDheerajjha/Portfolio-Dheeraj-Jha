@@ -149,6 +149,18 @@
     }
   }
 
+  &__principles {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: map-get($spacing, '3');
+    li {
+      @include theme-text-secondary(map-get($neutral-colors, '700'), map-get($neutral-colors, '300'));
+      @include font-size('sm');
+    }
+  }
+
   &__tea-image-container {
     flex-shrink: 0;
     overflow: hidden;

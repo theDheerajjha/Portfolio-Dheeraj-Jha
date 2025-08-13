@@ -1,4 +1,6 @@
 @use 'variables' as *;
+@use 'sass:map';
+@use 'sass:list';
 
 // Theme Mixins
 @mixin theme-background($light, $dark) {
@@ -43,8 +45,8 @@
 
 // Responsive Mixins
 @mixin respond-to($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media (min-width: map-get($breakpoints, $breakpoint)) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
       @content;
     }
   } @else {
@@ -54,11 +56,11 @@
 
 // Typography Mixins
 @mixin font-family($family) {
-  font-family: map-get($font-families, $family);
+  font-family: map.get($font-families, $family);
 }
 
 @mixin font-size($size) {
-  font-size: map-get($font-sizes, $size);
+  font-size: map.get($font-sizes, $size);
 }
 
 // Layout Mixins
@@ -80,7 +82,7 @@
 @mixin transition($properties...) {
   $transitions: ();
   @each $property in $properties {
-    $transitions: append($transitions, $property 300ms map-get($transition-timings, 'ease-out'), comma);
+    $transitions: list.append($transitions, $property 300ms map.get($transition-timings, 'ease-out'), comma);
   }
   transition: $transitions;
 }
@@ -90,8 +92,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: map-get($spacing, '3') map-get($spacing, '6');
-  border-radius: map-get($border-radius, 'lg');
+  padding: map.get($spacing, '3') map.get($spacing, '6');
+  border-radius: map.get($border-radius, 'lg');
   font-weight: 500;
   @include transition(background-color, transform, box-shadow);
 }
@@ -102,7 +104,7 @@
   color: white;
 
   &:hover {
-    background-color: darken(map-get($brand-colors, 'primary'), 10%);
+    background-color: darken(map.get($brand-colors, 'primary'), 10%);
   }
 }
 
@@ -120,9 +122,9 @@
 // Card Mixins
 @mixin card-base {
   background-color: var(--bg-secondary);
-  border-radius: map-get($border-radius, 'lg');
-  padding: map-get($spacing, '6');
-  @include theme-shadow(map-get($neutral-colors, '200'), map-get($neutral-colors, '900'));
+  border-radius: map.get($border-radius, 'lg');
+  padding: map.get($spacing, '6');
+  @include theme-shadow(map.get($neutral-colors, '200'), map.get($neutral-colors, '900'));
 }
 
 @mixin card-hover {
@@ -136,19 +138,19 @@
 
 // Spacing Mixins
 @mixin spacing($property, $size) {
-  @if map-has-key($spacing, $size) {
-    #{$property}: map-get($spacing, $size);
+  @if map.has-key($spacing, $size) {
+    #{$property}: map.get($spacing, $size);
   } @else {
     @warn "Invalid spacing size: #{$size}.";
   }
 }
 
 // Card Mixins
-@mixin card($padding: map-get($spacing, '4')) {
+@mixin card($padding: map.get($spacing, '4')) {
   padding: $padding;
-  border-radius: map-get($border-radius, 'lg');
-  @include theme-background(map-get($neutral-colors, '50'), map-get($neutral-colors, '800'));
-  @include theme-text(map-get($neutral-colors, '900'), map-get($neutral-colors, '100'));
+  border-radius: map.get($border-radius, 'lg');
+  @include theme-background(map.get($neutral-colors, '50'), map.get($neutral-colors, '800'));
+  @include theme-text(map.get($neutral-colors, '900'), map.get($neutral-colors, '100'));
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
@@ -163,8 +165,8 @@
 
 // Button Mixins
 @mixin button($variant: 'primary') {
-  padding: map-get($spacing, '2') map-get($spacing, '4');
-  border-radius: map-get($border-radius, 'md');
+  padding: map.get($spacing, '2') map.get($spacing, '4');
+  border-radius: map.get($border-radius, 'md');
   @include font-size('sm');
   @include font-family('sans');
   font-weight: 600;
@@ -176,7 +178,7 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 
     &:hover {
-      background-color: darken(map-get($brand-colors, 'primary'), 8%);
+      background-color: darken(map.get($brand-colors, 'primary'), 8%);
       transform: translateY(-1px);
       box-shadow: 0 6px 12px rgba(0,0,0,0.2);
     }

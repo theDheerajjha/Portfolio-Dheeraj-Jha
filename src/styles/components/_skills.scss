@@ -30,79 +30,29 @@
     }
   }
 
-  &__framework-grid {
-    display: grid;
-    gap: map-get($spacing, '6');
-    margin-bottom: map-get($spacing, '12');
-
-    @include respond-to('md') {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  &__framework-card {
-    padding: map-get($spacing, '6');
-    border-radius: map-get($border-radius, 'lg');
-    @include gradientBorderCard(map-get($brand-colors, 'primary'), map-get($brand-colors, 'secondary'));
-    box-shadow: 0 8px 20px var(--shadow);
-    @include transition(transform);
-
-    &--react { color: var(--color-brand-primary); }
-    &--vue { color: map-get($brand-colors, 'success'); }
-    &--angular { color: map-get($brand-colors, 'error'); }
-
-    &:hover {
-      transform: translateY(-4px);
-      @include theme-shadow(map-get($neutral-colors, '300'), map-get($neutral-colors, '800'));
-    }
-  }
-
-  &__framework-header {
-    @include flex(row, flex-start, center);
-    margin-bottom: map-get($spacing, '4');
-  }
-
-  &__framework-icon {
-    @include font-size('4xl');
-    margin-right: map-get($spacing, '4');
-  }
-
-  &__framework-info {
-    h3 {
-      @include font-size('xl');
-      font-weight: 600;
-      @include theme-text(map-get($neutral-colors, '900'), map-get($neutral-colors, '50'));
-    }
-
-    p {
-      @include font-size('sm');
-      @include theme-text-secondary(map-get($neutral-colors, '700'), map-get($neutral-colors, '300'));
-    }
-  }
-
-  &__framework-description {
-    @include font-size('sm');
-    @include theme-text-secondary(map-get($neutral-colors, '700'), map-get($neutral-colors, '300'));
-  }
-
-  &__additional {
-    text-align: center;
-  }
-
-  &__additional-title {
-    @include font-size('2xl');
-    font-weight: 600;
-    margin-bottom: map-get($spacing, '6');
-    color: var(--color-brand-primary);
-  }
-
-  &__additional-list {
-    @include flex(row, center, center);
+  &__highlights {
+    display: flex;
     flex-wrap: wrap;
     gap: map-get($spacing, '3');
+    justify-content: center;
+    margin-bottom: map-get($spacing, '8');
   }
 
-  &__additional-item {
+  &__highlight {
+    padding: map-get($spacing, '2') map-get($spacing, '3');
+    background: linear-gradient(var(--bg-tertiary), var(--bg-tertiary)) padding-box,
+                linear-gradient(135deg, rgba(var(--color-brand-primary-rgb), 0.4), rgba(var(--color-brand-secondary-rgb), 0.4)) border-box;
+    border: 1px solid transparent;
+    border-radius: map-get($border-radius, 'full');
+    @include font-size('sm');
+    color: var(--text-secondary);
+  }
+
+  &__matrix { display: grid; gap: map-get($spacing, '8'); }
+  &__group {}
+  &__group-title { @include font-size('xl'); font-weight: 600; margin-bottom: map-get($spacing, '3'); }
+  &__chips { display: flex; flex-wrap: wrap; gap: map-get($spacing, '3'); }
+  &__chip {
     padding: map-get($spacing, '2') map-get($spacing, '4');
     background: linear-gradient(var(--bg-tertiary), var(--bg-tertiary)) padding-box,
                 linear-gradient(135deg, rgba(var(--color-brand-primary-rgb), 0.4), rgba(var(--color-brand-secondary-rgb), 0.4)) border-box;
@@ -111,9 +61,11 @@
     border-radius: map-get($border-radius, 'full');
     @include font-size('sm');
     @include transition(transform);
-
-    &:hover {
-      transform: scale(1.05);
-    }
   }
+
+  &__expertise { margin-top: map-get($spacing, '10'); display: grid; gap: map-get($spacing, '4'); }
+  &__bar { }
+  &__bar-label { @include flex(row, space-between, center); @include font-size('sm'); color: var(--text-secondary); margin-bottom: map-get($spacing, '2'); }
+  &__bar-track { height: 8px; border-radius: 9999px; background: var(--bg-tertiary); position: relative; overflow: hidden; }
+  &__bar-fill { height: 100%; background: linear-gradient(90deg, var(--color-brand-primary), var(--color-brand-secondary)); }
 } 

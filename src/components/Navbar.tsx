@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
+    // Removed Skills section
     { name: "Projects", href: "#personal-projects" },
     { name: "Experience", href: "#experience" },
     { name: "Contact", href: "#contact" },
