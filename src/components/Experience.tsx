@@ -21,7 +21,7 @@ const Experience: React.FC = () => {
       company: "Cavista (Axxess)",
       role: "Frontend Engineer 1",
       duration: "May 2022 – Jun 2024 • Pune",
-      logo: "https://logo.clearbit.com/axxess.com",
+      logo: "https://logo.clearbit.com/cavistatech.com",
       linkedin: "https://www.linkedin.com/company/cavista",
       highlights: [
         "Delivered accessible, responsive UIs used by 1000+ U.S. healthcare agencies, improving operational efficiency and UX.",
