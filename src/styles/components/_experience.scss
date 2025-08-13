@@ -51,23 +51,43 @@
 
   &__header {
     @include flex(row, space-between, center);
+    gap: map-get($spacing, '3');
+    flex-wrap: wrap;
     margin-bottom: map-get($spacing, '4');
+  }
+
+  &__logo {
+    height: 28px;
+    width: auto;
+    margin-right: map-get($spacing, '3');
+    filter: grayscale(100%);
+    opacity: 0.8;
   }
 
   &__role {
     @include font-size('xl');
-    font-weight: 600;
-    color: var(--color-brand-primary);
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--color-brand-primary), var(--color-brand-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   &__duration {
     @include font-size('sm');
     @include theme-text-secondary(map-get($neutral-colors, '700'), map-get($neutral-colors, '300'));
+    padding: map-get($spacing, '1') map-get($spacing, '3');
+    border: 1px solid var(--border);
+    border-radius: map-get($border-radius, 'full');
+    background: var(--bg-tertiary);
   }
 
   &__company {
-    @include theme-text-secondary(map-get($neutral-colors, '700'), map-get($neutral-colors, '300'));
     margin-bottom: map-get($spacing, '3');
+    font-weight: 600;
+    @include font-size('lg');
+    background: linear-gradient(135deg, var(--color-brand-secondary), var(--color-brand-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   &__highlights {
@@ -80,6 +100,7 @@
 
     li {
       @include font-size('sm');
+      &::marker { color: var(--color-brand-secondary); }
     }
   }
 } 

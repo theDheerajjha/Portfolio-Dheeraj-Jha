@@ -5,8 +5,9 @@ const Experience: React.FC = () => {
   const experiences = [
     {
       company: "WebMD",
-      role: "Software Engineer, Frontend",
+      role: "Software Engineer - Frontend",
       duration: "Jun 2024 – Present • Mumbai",
+      logo: "https://logo.clearbit.com/webmd.com",
       highlights: [
         "Built scalable UI for PageBuilder CMS in React and Vue 3 used by non‑technical teams to create/manage content.",
         "Implemented Module Federation to dynamically load independently deployed Vue 3 apps, cutting integration complexity ~30%.",
@@ -17,8 +18,9 @@ const Experience: React.FC = () => {
     },
     {
       company: "Cavista (Axxess Home Care)",
-      role: "Frontend Engineer",
+      role: "Frontend Engineer 1",
       duration: "May 2022 – Jun 2024 • Pune",
+      logo: "https://logo.clearbit.com/axxess.com",
       highlights: [
         "Delivered accessible, responsive UIs used by 1000+ U.S. healthcare agencies, improving operational efficiency and UX.",
         "Shipped key features: visit scheduling, care plans, availability tracking to streamline care team coordination.",
@@ -30,6 +32,7 @@ const Experience: React.FC = () => {
       company: "Wolken Software",
       role: "Associate Software Developer",
       duration: "Aug 2021 – May 2022 • Bangalore",
+      logo: "https://logo.clearbit.com/wolkensoftware.com",
       highlights: [
         "Built modular, reusable React + Redux components for an internal Service Desk, speeding feature delivery.",
         "Optimized data‑heavy ticket views with lazy loading and server‑side pagination, reducing initial load ~35%.",
@@ -60,6 +63,9 @@ const Experience: React.FC = () => {
                 className="experience__item"
               >
                 <div className="experience__header">
+                  {exp.logo ? (
+                    <img src={exp.logo} alt={`${exp.company} logo`} className="experience__logo" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+                  ) : null}
                   <h3 className="experience__role">
                     {exp.role}
                   </h3>
