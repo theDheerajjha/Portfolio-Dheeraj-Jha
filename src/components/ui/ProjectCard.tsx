@@ -31,7 +31,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       </ul>
       {link && (
         <a href={link} target="_blank" rel="noopener noreferrer" className="projects__card-link mt-auto font-medium">
-          View Site
+          Know More
         </a>
       )}
     </div>
