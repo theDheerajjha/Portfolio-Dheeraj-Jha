@@ -57,11 +57,11 @@
   }
 
   &__logo {
-    height: 28px;
+    height: 36px;
     width: auto;
     margin-right: map-get($spacing, '3');
-    filter: grayscale(100%);
-    opacity: 0.8;
+    filter: none;
+    opacity: 1;
   }
 
   &__role {
