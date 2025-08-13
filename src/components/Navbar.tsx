@@ -17,7 +17,6 @@ const Navbar: React.FC = () => {
       const sections = [
         "home",
         "about",
-        "skills",
         "projects",
         "experience",
         "contact",
@@ -46,7 +45,7 @@ const Navbar: React.FC = () => {
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
     // Removed Skills section
-    { name: "Projects", href: "#personal-projects" },
+    { name: "Projects", href: "#projects" },
     { name: "Experience", href: "#experience" },
     { name: "Contact", href: "#contact" },
   ];
