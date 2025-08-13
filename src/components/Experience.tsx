@@ -8,6 +8,7 @@ const Experience: React.FC = () => {
       role: "Software Engineer - Frontend",
       duration: "Jun 2024 – Present • Mumbai",
       logo: "https://logo.clearbit.com/webmd.com",
+      linkedin: "https://www.linkedin.com/company/webmd/",
       highlights: [
         "Built scalable UI for PageBuilder CMS in React and Vue 3 used by non‑technical teams to create/manage content.",
         "Implemented Module Federation to dynamically load independently deployed Vue 3 apps, cutting integration complexity ~30%.",
@@ -17,10 +18,11 @@ const Experience: React.FC = () => {
       ],
     },
     {
-      company: "Cavista (Axxess Home Care)",
+      company: "Cavista (Axxess)",
       role: "Frontend Engineer 1",
       duration: "May 2022 – Jun 2024 • Pune",
       logo: "https://logo.clearbit.com/axxess.com",
+      linkedin: "https://www.linkedin.com/company/cavista",
       highlights: [
         "Delivered accessible, responsive UIs used by 1000+ U.S. healthcare agencies, improving operational efficiency and UX.",
         "Shipped key features: visit scheduling, care plans, availability tracking to streamline care team coordination.",
@@ -33,6 +35,7 @@ const Experience: React.FC = () => {
       role: "Associate Software Developer",
       duration: "Aug 2021 – May 2022 • Bangalore",
       logo: "https://logo.clearbit.com/wolkensoftware.com",
+      linkedin: "https://www.linkedin.com/company/wolken-software/",
       highlights: [
         "Built modular, reusable React + Redux components for an internal Service Desk, speeding feature delivery.",
         "Optimized data‑heavy ticket views with lazy loading and server‑side pagination, reducing initial load ~35%.",
@@ -74,7 +77,20 @@ const Experience: React.FC = () => {
                   </span>
                 </div>
 
-                <p className="experience__company">{exp.company}</p>
+                <p className="experience__company">
+                  {exp.linkedin ? (
+                    <a
+                      href={exp.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Open ${exp.company} LinkedIn page in a new tab`}
+                    >
+                      {exp.company}
+                    </a>
+                  ) : (
+                    exp.company
+                  )}
+                </p>
 
                 <ul className="experience__highlights">
                   {exp.highlights.map((highlight) => (
