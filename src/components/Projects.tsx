@@ -3,12 +3,14 @@ import { projects } from "../data/projects";
 import ProjectCard from "./ui/ProjectCard";
 
 const Projects: React.FC = () => (
-  <section id="projects" className="py-12 px-4 max-w-5xl mx-auto">
-    <h2 className="text-3xl font-bold mb-8 text-center">Projects</h2>
-    <div>
-      {projects.map((project, idx) => (
-        <ProjectCard key={project.title} {...project} />
-      ))}
+  <section id="projects" className="projects__section">
+    <div className="projects__container">
+      <h2 className="projects__title">Projects</h2>
+      <div className="projects__grid">
+        {projects.map((project) => (
+          <ProjectCard key={project.title} {...project} />
+        ))}
+      </div>
     </div>
   </section>
 );
