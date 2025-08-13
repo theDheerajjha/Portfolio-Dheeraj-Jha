@@ -52,12 +52,13 @@
   }
 
   &__card {
+    // Use secondary surface for better consistency with the rest of the site
     @include theme-background-secondary(map-get($neutral-colors, '100'), map-get($neutral-colors, '800'));
     border-radius: map-get($border-radius, 'lg');
     padding: map-get($spacing, '6');
     @include transition(all);
-    border: 1px solid transparent;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 10px var(--shadow);
 
     &:hover {
       transform: translateY(-4px);
@@ -66,17 +67,11 @@
     }
 
     &--direct {
-      background: linear-gradient(135deg,
-        rgba(var(--color-brand-primary-rgb), 0.05) 0%,
-        rgba(var(--color-brand-secondary-rgb), 0.05) 100%
-      );
+      border-left: 3px solid var(--color-brand-primary);
     }
 
     &--social {
-      background: linear-gradient(135deg,
-        rgba(var(--color-brand-secondary-rgb), 0.05) 0%,
-        rgba(var(--color-brand-accent-rgb), 0.05) 100%
-      );
+      border-left: 3px solid var(--color-brand-secondary);
     }
   }
 

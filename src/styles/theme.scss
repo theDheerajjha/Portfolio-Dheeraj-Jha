@@ -133,13 +133,8 @@ a {
 }
 
 // Buttons
-.btn {
-  @include button;
-}
-
-.btn-secondary {
-  @include button('secondary');
-}
+.btn { @include button('primary'); }
+.btn-secondary { @include button('secondary'); }
 
 // Cards
 .card {
