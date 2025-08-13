@@ -159,23 +159,31 @@
   @include font-size('sm');
   @include font-family('sans');
   font-weight: 600;
-  @include transition(background-color, color, transform);
-  
+  @include transition(background-color, color, border-color, transform, box-shadow);
+
   @if $variant == 'primary' {
-    @include theme-background(map-get($brand-colors, 'primary'), map-get($brand-colors, 'primary'));
+    background-color: var(--color-brand-primary);
     color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+
     &:hover {
-      background-color: darken(map-get($brand-colors, 'primary'), 10%);
+      background-color: darken(map-get($brand-colors, 'primary'), 8%);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
     }
   } @else if $variant == 'secondary' {
-    @include theme-background(map-get($brand-colors, 'secondary'), map-get($brand-colors, 'secondary'));
-    color: white;
+    background-color: transparent;
+    border: 2px solid var(--border);
+    color: var(--text-primary);
+
     &:hover {
-      background-color: darken(map-get($brand-colors, 'secondary'), 10%);
+      background-color: var(--bg-secondary);
+      border-color: var(--color-brand-primary);
+      transform: translateY(-1px);
     }
   }
-  
+
   &:active {
     transform: scale(0.98);
   }
-} 
+}
