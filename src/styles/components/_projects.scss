@@ -36,8 +36,8 @@
 
   &__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: map-get($spacing, '6');
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: map-get($spacing, '8');
     margin-bottom: map-get($spacing, '12');
   }
 
@@ -60,8 +60,25 @@
     }
   }
 
+  &__media {
+    width: 100%;
+    @include respond-to('md') { width: 55%; }
+    @include respond-to('lg') { width: 45%; }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__media-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-height: 220px;
+    padding: map-get($spacing, '4');
+  }
+
   &__card-title {
-    @include font-size('xl');
+    @include font-size('2xl');
     font-weight: 700;
     margin-bottom: map-get($spacing, '4');
     color: var(--color-brand-primary);

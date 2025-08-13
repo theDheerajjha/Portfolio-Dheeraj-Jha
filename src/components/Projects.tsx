@@ -4,7 +4,7 @@ import ProjectCard from "./ui/ProjectCard";
 
 const Projects: React.FC = () => (
   <section id="projects" className="projects__section">
-    <div className="projects__container">
+    <div className="projects__container" style={{maxWidth: '1200px'}}>
       <h2 className="projects__title">Projects</h2>
       <div className="projects__grid">
         {projects.map((project) => (
