@@ -12,9 +12,9 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 18rem;
-    height: 18rem;
-    background-color: rgba(map-get($brand-colors, 'primary'), 0.05);
+    width: 22rem;
+    height: 22rem;
+    background: radial-gradient( circle at center, rgba(map-get($brand-colors, 'secondary'), 0.25), transparent 60%);
     border-radius: 9999px;
     filter: blur(64px);
     animation: spin 20s linear infinite;
@@ -24,9 +24,9 @@
       right: auto;
       bottom: 0;
       left: 0;
-      width: 14rem;
-      height: 14rem;
-      background-color: rgba(map-get($brand-colors, 'accent'), 0.05);
+      width: 18rem;
+      height: 18rem;
+      background: radial-gradient( circle at center, rgba(map-get($brand-colors, 'accent'), 0.22), transparent 60%);
       animation: float 6s ease-in-out infinite;
     }
   }
@@ -42,7 +42,7 @@
 
   &__title {
     @include font-size('4xl');
-    font-weight: 700;
+    font-weight: 800;
     background: linear-gradient(135deg, 
       var(--color-brand-primary) 0%,
       var(--color-brand-secondary) 50%,
@@ -91,8 +91,10 @@
 
   &__tech-item {
     padding: map-get($spacing, '2') map-get($spacing, '4');
-    @include theme-background-secondary(map-get($neutral-colors, '50'), map-get($neutral-colors, '800'));
-    color: var(--color-brand-primary);
+    background: linear-gradient(var(--bg-tertiary), var(--bg-tertiary)) padding-box,
+                linear-gradient(135deg, rgba(var(--color-brand-primary-rgb), 0.5), rgba(var(--color-brand-secondary-rgb), 0.5)) border-box;
+    border: 1px solid transparent;
+    color: var(--text-secondary);
     border-radius: map-get($border-radius, 'full');
     @include font-size('sm');
     @include transition(all);
@@ -101,12 +103,8 @@
 
     &:hover {
       transform: translateY(-2px);
-      border-color: var(--color-brand-primary);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      background: linear-gradient(135deg, 
-        rgba(var(--color-brand-primary-rgb), 0.1) 0%,
-        rgba(var(--color-brand-secondary-rgb), 0.1) 100%
-      );
+      filter: brightness(1.05);
     }
   }
 

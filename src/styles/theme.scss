@@ -5,10 +5,11 @@
 @use 'components/navbar';
 @use 'components/header';
 @use 'components/about';
-@use 'components/skills';
+// @use 'components/skills';
 @use 'components/experience';
 @use 'components/projects';
 @use 'components/contact';
+@use 'components/footer';
 
 // Base theme styles
 :root {
@@ -135,6 +136,15 @@ a {
 // Buttons
 .btn { @include button('primary'); }
 .btn-secondary { @include button('secondary'); }
+
+// Ghost button variant
+.btn-ghost {
+  @include button('secondary');
+  background: transparent;
+  border-color: transparent;
+  color: var(--text-secondary);
+  &:hover { background: var(--bg-secondary); color: var(--text-primary); }
+}
 
 // Cards
 .card {

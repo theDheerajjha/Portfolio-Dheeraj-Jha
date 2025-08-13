@@ -1,7 +1,11 @@
+import webmdImg from "../assets/Pgebuilder-CMS-Webmd.jpg";
+import axxessImg from "../assets/Axxess Home care.jpg";
+import wolkenImg from "../assets/Wolken Servicedesk.jpg";
+
 export const projects = [
   {
     title: "WebMD - PageBuilder",
-    image: "https://media.licdn.com/dms/image/v2/D562DAQFdoZldhld16g/profile-treasury-image-shrink_8192_8192/B56ZcNmxyqHEAo-/0/1748279959709?e=1755054000&v=beta&t=DX1xrat_BvIKaG36UJcs2PeA8IL9hhc8W7HorzIOWZc",
+    image: webmdImg,
     challenge: "Enable non-technical users to design and publish content easily within a CMS.",
     approach: "Built dynamic frontend components and enhanced deployment pipeline. Leveraged in-house AI tools (Asterix & Athena) to automate component creation, debugging, and test writing.",
     tools: ["React", "Vue 3", "TypeScript", "Vite", "Asterix AI", "Athena AI"],
@@ -10,7 +14,7 @@ export const projects = [
   },
   {
     title: "Axxess Home Care Platform",
-    image: "https://media.licdn.com/dms/image/v2/D562DAQF-cse6K0bfBw/profile-treasury-image-shrink_8192_8192/B56ZcNpCh4HgAk-/0/1748280552672?e=1755054000&v=beta&t=Q61mOL9DtvxS8kuG5kKOPmxKTp5qNQpXtWQQjjZnx70",
+    image: axxessImg,
     challenge: "Streamline operations for 1000+ US-based healthcare agencies.",
     approach: "Delivered core features like visit scheduling, care plans, and availability tracking. Built responsive, pixel-perfect UI components and improved data syncing via optimized API integration.",
     tools: ["React", "Next.js", "Tailwind CSS", "Material UI", "REST APIs"],
@@ -19,7 +23,7 @@ export const projects = [
   },
   {
     title: "Wolken's Desk - Service Management App",
-    image: "https://media.licdn.com/dms/image/v2/D562DAQH7ZqbbNK-OwQ/profile-treasury-image-shrink_800_800/B56ZcNrPl0HoAY-/0/1748281130772?e=1755054000&v=beta&t=3sFKd5kqwc_6lze8lxOybfpiluYOzzOWeJocefTLo8U",
+    image: wolkenImg,
     challenge: "Improve ticket management, notifications, and workflow automation for a SaaS-based service desk.",
     approach: "Developed and enhanced features, implemented server-side pagination, and optimized performance for faster data rendering.",
     tools: ["React", "TypeScript", "Axios", "Material UI", "SCSS"],

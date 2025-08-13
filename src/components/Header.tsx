@@ -1,52 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 import Navbar from "./Navbar";
 
 const Header: React.FC = () => {
-  const [displayText, setDisplayText] = useState("");
-  const introText = "Hi, I'm Dheeraj! 👋";
-  const subtitleTexts = [
-    "Crafting Digital Experiences 🚀",
-    "Turning Code into Magic ✨",
-    "Web Wizard at Your Service 🧙‍♂️",
-  ];
-  const [subtitleIndex, setSubtitleIndex] = useState(0);
-
-  useEffect(() => {
-    let currentText = "";
-    let index = 0;
-
-    const typeWriter = setInterval(() => {
-      if (index < introText.length) {
-        currentText += introText.charAt(index);
-        setDisplayText(currentText);
-        index++;
-      } else {
-        clearInterval(typeWriter);
-
-        // Smooth scroll to the about section after typing is done
-        setTimeout(() => {
-          const aboutSection = document.getElementById("about");
-          if (aboutSection) {
-            aboutSection.scrollIntoView({ behavior: "smooth" });
-          } else {
-            // fallback: set hash if element not found
-            window.location.hash = "#about";
-          }
-        }, 500); // slight delay for UX
-
-        // Cycle through subtitles
-        const subtitleCycle = setInterval(() => {
-          setSubtitleIndex((prev) => (prev + 1) % subtitleTexts.length);
-        }, 3000);
-
-        return () => clearInterval(subtitleCycle);
-      }
-    }, 100);
-
-    return () => clearInterval(typeWriter);
-  }, []);
+  const headline = "Dheeraj Jha";
+  const valueProp = "Frontend Engineer crafting fast, accessible, elegant web apps (React, Vue, TypeScript).";
 
   const technologies = [
     "ReactJS",
@@ -72,19 +31,15 @@ const Header: React.FC = () => {
         className="header__content"
       >
         <div>
-          <h1 className="header__title">
-            {displayText}
-            <span className="animate-blink">|</span>
-          </h1>
+          <h1 className="header__title">{headline}</h1>
 
           <motion.p
-            key={subtitleIndex}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="header__subtitle"
           >
-            {subtitleTexts[subtitleIndex]}
+            {valueProp}
           </motion.p>
 
           <div className="header__tech-stack">

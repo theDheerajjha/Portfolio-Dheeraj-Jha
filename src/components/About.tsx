@@ -71,12 +71,13 @@ const About: React.FC = () => {
             className="about__tea-section"
           >
             <div className="about__tea-content">
-              <h3 className="about__tea-title">
-                ☕ Tea & Code Moments
-              </h3>
-              <p className="about__tea-text">
-                My best ideas (and bug fixes) often arrive with a hot cup of chai. From late-night coding sprints in college to launching production apps for millions, I’ve learned that every line of code is a chance to make a difference—and a story worth sharing.
-              </p>
+              <h3 className="about__tea-title">Principles</h3>
+              <ul className="about__principles">
+                <li>Design systems first: consistency, speed, and accessibility.</li>
+                <li>Measure everything: performance budgets and error budgets.</li>
+                <li>Ship in slices: incremental value, fast feedback loops.</li>
+                <li>Mentor and document: raise the team’s bar, not just the code.</li>
+              </ul>
             </div>
             <motion.div
               whileHover={{ scale: 1.05 }}
@@ -85,10 +86,10 @@ const About: React.FC = () => {
               <div className={`about__image-placeholder ${imagesLoaded.tea ? 'hidden' : 'block'}`} />
               <img
                 src={teaImage}
-                alt="Tea and Coding"
+                alt="Working at a desk"
                 loading="lazy"
                 onLoad={() => handleImageLoad('tea')}
-                className={`about__tea-image ${imagesLoaded.tea ? 'opacity-70' : 'opacity-0'}`}
+                className={`about__tea-image ${imagesLoaded.tea ? 'opacity-85' : 'opacity-0'}`}
               />
             </motion.div>
           </motion.div>

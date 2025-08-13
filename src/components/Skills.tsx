@@ -2,41 +2,26 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const Skills: React.FC = () => {
-  const frameworkSkills = [
-    {
-      name: "React",
-      level: "Expert",
-      description:
-        "Advanced React development with hooks, context, and performance optimization",
-      icon: "⚛️",
-      variant: "react",
-    },
-    {
-      name: "Vue",
-      level: "Advanced",
-      description:
-        "Proficient in Vue 2 and Vue 3, with Composition API and Vuex",
-      icon: "🟢",
-      variant: "vue",
-    },
-    {
-      name: "Angular",
-      level: "Intermediate",
-      description:
-        "Solid understanding of Angular framework, RxJS, and TypeScript",
-      icon: "🅰️",
-      variant: "angular",
-    },
+  const core = ["React", "Vue", "TypeScript", "Next.js", "Node.js"];
+  const tools = ["Vite", "Webpack", "Tailwind", "SCSS", "MUI"];
+  const practices = ["Accessibility", "Performance", "Design Systems", "Testing", "DX/Tooling"];
+
+  const highlights = [
+    { label: "React", value: "4+ yrs" },
+    { label: "Vue", value: "3+ yrs" },
+    { label: "TypeScript", value: "4 yrs" },
+    { label: "LCP", value: "< 2s" },
+    { label: "A11y", value: "WCAG AA" },
+    { label: "DX", value: "Design Systems" },
   ];
 
-  const additionalSkills = [
-    "TypeScript",
-    "NextJS",
-    "GraphQL",
-    "REST APIs",
-    "Responsive Design",
-    "Performance Optimization",
-    "Webpack",
+  const expertise = [
+    { name: "React", level: 90 },
+    { name: "Vue", level: 80 },
+    { name: "TypeScript", level: 90 },
+    { name: "Performance", level: 85 },
+    { name: "Accessibility", level: 80 },
+    { name: "Testing", level: 70 },
   ];
 
   return (
@@ -47,47 +32,55 @@ const Skills: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="skills__title">
-            Frontend Framework Expertise
-          </h2>
+          <h2 className="skills__title">Capabilities</h2>
 
-          {/* Framework Skills */}
-          <div className="skills__framework-grid">
-            {frameworkSkills.map((framework) => (
-              <motion.div
-                key={framework.name}
-                whileHover={{ scale: 1.05 }}
-                className={`skills__framework-card skills__framework-card--${framework.variant}`}
-              >
-                <div className="skills__framework-header">
-                  <span className="skills__framework-icon">{framework.icon}</span>
-                  <div className="skills__framework-info">
-                    <h3>{framework.name}</h3>
-                    <p>{framework.level}</p>
-                  </div>
-                </div>
-                <p className="skills__framework-description">
-                  {framework.description}
-                </p>
-              </motion.div>
+          <div className="skills__highlights">
+            {highlights.map((h) => (
+              <span key={h.label} className="skills__highlight">
+                <strong>{h.value}</strong> {h.label}
+              </span>
             ))}
           </div>
 
-          {/* Additional Skills */}
-          <div className="skills__additional">
-            <h3 className="skills__additional-title">
-              Complementary Skills
-            </h3>
-            <div className="skills__additional-list">
-              {additionalSkills.map((skill) => (
-                <span
-                  key={skill}
-                  className="skills__additional-item"
-                >
-                  {skill}
-                </span>
-              ))}
+          <div className="skills__matrix">
+            <div className="skills__group">
+              <h3 className="skills__group-title">Core</h3>
+              <div className="skills__chips">
+                {core.map((s) => (
+                  <span key={s} className="skills__chip">{s}</span>
+                ))}
+              </div>
             </div>
+            <div className="skills__group">
+              <h3 className="skills__group-title">Tools</h3>
+              <div className="skills__chips">
+                {tools.map((s) => (
+                  <span key={s} className="skills__chip">{s}</span>
+                ))}
+              </div>
+            </div>
+            <div className="skills__group">
+              <h3 className="skills__group-title">Practices</h3>
+              <div className="skills__chips">
+                {practices.map((s) => (
+                  <span key={s} className="skills__chip">{s}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="skills__expertise">
+            {expertise.map((e) => (
+              <div key={e.name} className="skills__bar">
+                <div className="skills__bar-label">
+                  <span>{e.name}</span>
+                  <span>{e.level}%</span>
+                </div>
+                <div className="skills__bar-track">
+                  <div className="skills__bar-fill" style={{ width: `${e.level}%` }} />
+                </div>
+              </div>
+            ))}
           </div>
         </motion.div>
       </div>
