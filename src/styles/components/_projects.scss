@@ -42,21 +42,18 @@
   }
 
   &__card {
-    // Use secondary surface like contact for consistency
-    @include theme-background-secondary(map-get($neutral-colors, '100'), map-get($neutral-colors, '800'));
+    @include gradientBorderCard(map-get($brand-colors, 'primary'), map-get($brand-colors, 'secondary'));
     border-radius: map-get($border-radius, 'lg');
     padding: map-get($spacing, '6');
     @include transition(all);
-    border: 1px solid transparent;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px var(--shadow);
     display: flex;
     flex-direction: column;
     min-height: 250px;
 
     &:hover {
       transform: translateY(-4px);
-      border-color: var(--color-brand-primary);
-      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 12px 24px var(--shadow);
     }
   }
 
@@ -156,7 +153,9 @@
   &__tech-item {
     @include font-size('sm');
     padding: map-get($spacing, '1') map-get($spacing, '3');
-    @include theme-background-secondary(map-get($neutral-colors, '200'), map-get($neutral-colors, '700'));
+    background: linear-gradient(var(--bg-tertiary), var(--bg-tertiary)) padding-box,
+                linear-gradient(135deg, rgba(var(--color-brand-primary-rgb), 0.4), rgba(var(--color-brand-secondary-rgb), 0.4)) border-box;
+    border: 1px solid transparent;
     border-radius: map-get($border-radius, 'full');
     @include theme-text-secondary(map-get($neutral-colors, '700'), map-get($neutral-colors, '300'));
     @include transition(all);
@@ -164,10 +163,7 @@
 
     &:hover {
       transform: translateY(-2px);
-      background: linear-gradient(135deg, 
-        rgba(var(--color-brand-primary-rgb), 0.1) 0%,
-        rgba(var(--color-brand-secondary-rgb), 0.1) 100%
-      );
+      filter: brightness(1.05);
       color: var(--color-brand-primary);
     }
   }

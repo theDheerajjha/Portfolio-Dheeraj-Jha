@@ -152,6 +152,15 @@
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
+// Decorative gradient border without heavy fill
+@mixin gradientBorderCard($from, $to) {
+  position: relative;
+  background: linear-gradient(var(--bg-secondary), var(--bg-secondary)) padding-box,
+              linear-gradient(135deg, $from, $to) border-box;
+  border: 1px solid transparent;
+  border-radius: map-get($border-radius, 'xl');
+}
+
 // Button Mixins
 @mixin button($variant: 'primary') {
   padding: map-get($spacing, '2') map-get($spacing, '4');

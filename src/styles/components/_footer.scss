@@ -1,0 +1,48 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.footer {
+  position: relative;
+  padding: map-get($spacing, '10') 0;
+  @include theme-background(map-get($neutral-colors, '50'), map-get($neutral-colors, '900'));
+  @include theme-text(map-get($neutral-colors, '900'), map-get($neutral-colors, '50'));
+  border-top: 1px solid var(--border);
+
+  &__container {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 0 map-get($spacing, '4');
+    @include flex(column, center, center);
+    gap: map-get($spacing, '4');
+    text-align: center;
+  }
+
+  &__brand {
+    @include flex(column, center, center);
+    gap: map-get($spacing, '2');
+  }
+
+  &__logo {
+    @include font-family('heading');
+    @include font-size('xl');
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--color-brand-primary), var(--color-brand-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &__tag { @include theme-text-secondary(map-get($neutral-colors, '700'), map-get($neutral-colors, '300')); }
+
+  &__social { @include flex(row, center, center); gap: map-get($spacing, '4'); }
+
+  &__link {
+    @include theme-text-secondary(map-get($neutral-colors, '700'), map-get($neutral-colors, '300'));
+    @include transition(transform, color);
+    &:hover { transform: translateY(-2px); color: var(--color-brand-primary); }
+  }
+
+  &__meta { @include flex(row, center, center); gap: map-get($spacing, '3'); }
+  &__dot { width: 4px; height: 4px; border-radius: 9999px; background: var(--border); display: inline-block; }
+}
+
+

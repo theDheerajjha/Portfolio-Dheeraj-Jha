@@ -43,24 +43,13 @@
   &__framework-card {
     padding: map-get($spacing, '6');
     border-radius: map-get($border-radius, 'lg');
-    @include theme-background-secondary(map-get($neutral-colors, '100'), map-get($neutral-colors, '800'));
-    @include theme-shadow(map-get($neutral-colors, '200'), map-get($neutral-colors, '900'));
+    @include gradientBorderCard(map-get($brand-colors, 'primary'), map-get($brand-colors, 'secondary'));
+    box-shadow: 0 8px 20px var(--shadow);
     @include transition(transform);
 
-    &--react {
-      color: var(--color-brand-primary);
-      background-color: rgba(map-get($brand-colors, 'primary'), 0.1);
-    }
-
-    &--vue {
-      color: var(--color-brand-success);
-      background-color: rgba(map-get($brand-colors, 'success'), 0.1);
-    }
-
-    &--angular {
-      color: var(--color-brand-error);
-      background-color: rgba(map-get($brand-colors, 'error'), 0.1);
-    }
+    &--react { color: var(--color-brand-primary); }
+    &--vue { color: map-get($brand-colors, 'success'); }
+    &--angular { color: map-get($brand-colors, 'error'); }
 
     &:hover {
       transform: translateY(-4px);
@@ -115,8 +104,10 @@
 
   &__additional-item {
     padding: map-get($spacing, '2') map-get($spacing, '4');
-    @include theme-background-secondary(map-get($neutral-colors, '100'), map-get($neutral-colors, '800'));
-    color: var(--color-brand-primary);
+    background: linear-gradient(var(--bg-tertiary), var(--bg-tertiary)) padding-box,
+                linear-gradient(135deg, rgba(var(--color-brand-primary-rgb), 0.4), rgba(var(--color-brand-secondary-rgb), 0.4)) border-box;
+    border: 1px solid transparent;
+    color: var(--text-secondary);
     border-radius: map-get($border-radius, 'full');
     @include font-size('sm');
     @include transition(transform);

@@ -10,9 +10,11 @@
   @include transition(background-color, box-shadow);
 
   &--scrolled {
-    background-color: rgba(var(--bg-primary), 0.9);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(var(--bg-primary), var(--bg-primary)) padding-box,
+                linear-gradient(135deg, rgba(99,102,241,0.6), rgba(34,211,238,0.6)) border-box;
+    border-bottom: 1px solid transparent;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px -15px var(--shadow);
   }
 
   &__container {

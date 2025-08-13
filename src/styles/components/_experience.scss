@@ -37,10 +37,10 @@
   }
 
   &__item {
-    @include theme-background-secondary(map-get($neutral-colors, '100'), map-get($neutral-colors, '800'));
+    @include gradientBorderCard(map-get($brand-colors, 'primary'), map-get($brand-colors, 'secondary'));
     padding: map-get($spacing, '6');
     border-radius: map-get($border-radius, 'lg');
-    @include theme-shadow(map-get($neutral-colors, '200'), map-get($neutral-colors, '900'));
+    box-shadow: 0 8px 20px var(--shadow);
     @include transition(transform, box-shadow);
 
     &:hover {

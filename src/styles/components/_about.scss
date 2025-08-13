@@ -12,9 +12,9 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 18rem;
-    height: 18rem;
-    background-color: rgba(map-get($brand-colors, 'primary'), 0.1);
+    width: 22rem;
+    height: 22rem;
+    background: radial-gradient(circle at center, rgba(map-get($brand-colors, 'secondary'), 0.25), transparent 60%);
     border-radius: 9999px;
     filter: blur(64px);
     animation: spin 20s linear infinite;
@@ -24,9 +24,9 @@
       left: auto;
       bottom: 0;
       right: 0;
-      width: 14rem;
-      height: 14rem;
-      background-color: rgba(map-get($brand-colors, 'accent'), 0.1);
+      width: 18rem;
+      height: 18rem;
+      background: radial-gradient(circle at center, rgba(map-get($brand-colors, 'accent'), 0.22), transparent 60%);
       animation: float 6s ease-in-out infinite;
     }
   }
@@ -109,10 +109,10 @@
   }
 
   &__tea-section {
-    @include theme-background-secondary(map-get($neutral-colors, '100'), map-get($neutral-colors, '800'));
+    @include gradientBorderCard(map-get($brand-colors, 'primary'), map-get($brand-colors, 'secondary'));
     border-radius: map-get($border-radius, 'lg');
     padding: map-get($spacing, '8');
-    @include theme-shadow(map-get($neutral-colors, '200'), map-get($neutral-colors, '900'));
+    box-shadow: 0 8px 20px var(--shadow);
     margin-bottom: map-get($spacing, '12');
     @include flex(column, flex-start, center);
     gap: map-get($spacing, '8');
