@@ -4,8 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-neutral-900 text-neutral-100 font-sans;
+html.theme-dark body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
   background-image: radial-gradient(
       circle at top right,
       rgba(0, 123, 255, 0.1),
@@ -14,6 +16,23 @@ body {
     radial-gradient(
       circle at bottom left,
       rgba(255, 140, 26, 0.1),
+      transparent 20%
+    );
+  background-attachment: fixed;
+}
+
+html.theme-light body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  background-image: radial-gradient(
+      circle at top right,
+      rgba(0, 123, 255, 0.06),
+      transparent 20%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(255, 140, 26, 0.06),
       transparent 20%
     );
   background-attachment: fixed;
@@ -33,14 +52,17 @@ body {
 .code-cursor::after {
   content: "|";
   animation: code-cursor-blink 0.7s infinite;
-  @apply text-brand-300;
+  color: var(--color-brand-primary);
 }
 
 /* Tech-inspired Hover Effects */
 .tech-hover {
-  @apply transition-all duration-300 ease-in-out;
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
 }
 
 .tech-hover:hover {
-  @apply transform scale-105 shadow-lg;
+  transform: scale(1.05);
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
 }

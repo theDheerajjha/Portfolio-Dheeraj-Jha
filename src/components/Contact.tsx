@@ -72,23 +72,23 @@ const Contact = () => {
         className="flex flex-col items-center"
       >
         <h2 className="contact__title text-3xl font-bold mb-2 text-center">Let’s Work Together</h2>
-        <p className="contact__subtitle mb-8 text-gray-700 text-center max-w-xl">Interested in collaborating or have a project in mind? Reach out below!</p>
+        <p className="contact__subtitle mb-8 text-center max-w-xl">Interested in collaborating or have a project in mind? Reach out below!</p>
         <div className="flex flex-col sm:flex-row gap-4 mb-10 w-full justify-center items-center">
-          <a href="mailto:write4dheeraj@gmail.com" className="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 text-center min-w-[180px]" aria-label="Email Dheeraj">Let’s Work Together</a>
-          <a href="/src/assets/Resume - Dheeraj Jha.pdf" download className="inline-block bg-gray-200 text-gray-800 px-6 py-2 rounded-lg font-semibold shadow hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 text-center min-w-[180px]" aria-label="Download Resume">Download Resume</a>
+          <a href="mailto:write4dheeraj@gmail.com" className="btn min-w-[180px] text-center" aria-label="Email Dheeraj">Let’s Work Together</a>
+          <a href="/src/assets/Resume - Dheeraj Jha.pdf" download className="btn-secondary min-w-[180px] text-center" aria-label="Download Resume">Download Resume</a>
         </div>
-        <div className="w-full bg-white rounded-xl shadow-lg p-8 flex flex-col md:flex-row gap-8 items-center md:items-start">
-          <div className="flex-1 w-full">
-            <h3 className="contact__card-title font-semibold mb-3 text-lg text-blue-700">Direct Contact</h3>
+        <div className="contact__grid w-full">
+          <div className="contact__card contact__card--direct">
+            <h3 className="contact__card-title">Direct Contact</h3>
             {directContact.map((detail) => (
-              <div key={detail.label} className="contact__detail flex items-center gap-2 mb-2 text-gray-800">
-                <span className="contact__icon text-blue-600 text-xl">{detail.icon}</span>
+              <div key={detail.label} className="contact__detail">
+                <span className="contact__icon">{detail.icon}</span>
                 {detail.link ? (
                   <a
                     href={detail.link}
                     target={detail.label !== "Email" && detail.label !== "Phone" ? "_blank" : undefined}
                     rel={detail.label !== "Email" && detail.label !== "Phone" ? "noopener noreferrer" : undefined}
-                    className="contact__link hover:underline"
+                    className="contact__link"
                   >
                     {detail.value}
                   </a>
@@ -98,8 +98,8 @@ const Contact = () => {
               </div>
             ))}
           </div>
-          <div className="flex-1 w-full mt-6 md:mt-0">
-            <h3 className="contact__card-title font-semibold mb-3 text-lg text-blue-700 text-center">Social Links</h3>
+          <div className="contact__card contact__card--social">
+            <h3 className="contact__card-title">Social Links</h3>
             <div className="flex gap-4 md:gap-6 justify-center">
               {socialLinks.map((detail) => (
                 <a
@@ -107,7 +107,7 @@ const Contact = () => {
                   href={detail.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="contact__icon text-2xl text-gray-600 hover:text-blue-600 transition-colors"
+                  className="contact__icon text-2xl transition-colors"
                   aria-label={detail.label}
                 >
                   {detail.icon}
